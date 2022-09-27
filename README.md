@@ -1,4 +1,4 @@
-# <BandComu>
+# BandComu
 
 ## サイト概要
 ### サイトテーマ
