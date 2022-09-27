@@ -1,38 +1,37 @@
-# README
+# <BandComu>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+<音楽グループがメンバーを募集するコミュニティサイト>
 
-Things you may want to cover:
+### テーマを選んだ理由
+<音楽活動をしたいけど人数や楽器が揃わない、同じジャンルの音楽が好きな人が身近にいないからという理由で音楽活動を諦めてしまうことを防ぎ、音楽を活性化させるため。コロナが終息に向かいつつある中、人が集まって音楽活動をできるようにしたいから。>
 
-* Ruby version
+### ターゲットユーザ
+- 音楽が好きな人
+- バンドメンバーを探している人
+- 音楽に興味がある人
+- 同じバンドグループが好きな人同士でバンドを組みたい人
 
-* System dependencies
+### 主な利用シーン
+- バンドメンバーを募集したいとき
+- バンドや楽団に所属したいときにすぐ探せる
+- 同じバンドグループが好きな人同士でバンドを組みたい時
+- 身近にバンドを組める人がいない時。
 
-* Configuration
+## 設計書
+<...>
 
-* Database creation
+## 実装機能リスト
+< https://docs.google.com/spreadsheets/d/1SLSaZlqbYTeyH4CP6ClZtqEjxo2OE4ns01U879hOaQ0/edit?usp=sharing >
 
-* Database initialization
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-* サイト名:BandComu
-
-* サイト概要:
-
-* サイトテーマ: 音楽グループがメンバーを募集するコミュニティサイト
-
-* テーマを選んだ理由:吹奏楽団に所属したいと思っていた時に中々近くの楽団が見つからなかったから。手軽に見つけられるように。
-
-* ターゲットユーザー：音楽好きな人。楽団やバンドに所属したい人。
-
-* 主な利用シーン:入りたい楽団やバンドを探す時。
-
-*　実装機能チェックシート: https://docs.google.com/spreadsheets/d/1SLSaZlqbYTeyH4CP6ClZtqEjxo2OE4ns01U879hOaQ0/edit?usp=sharing 
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
