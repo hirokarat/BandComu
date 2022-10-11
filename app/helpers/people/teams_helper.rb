@@ -1,0 +1,2 @@
+module People::TeamsHelper
+end

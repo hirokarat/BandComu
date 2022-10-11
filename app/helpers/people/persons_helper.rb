@@ -1,0 +1,2 @@
+module People::PersonsHelper
+end

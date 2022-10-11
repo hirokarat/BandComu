@@ -1,0 +1,2 @@
+module People::JournalsHelper
+end
