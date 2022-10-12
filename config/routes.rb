@@ -19,5 +19,25 @@ devise_for :people, skip:[:passwords], controllers: {
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
+
+namespace :admin do
+    root to:'homes#top'
+    resources:persons, only: [:index,:show,:destroy,:unsubscribe,:withdraw]
+    resources:teams, only:[:index,:show,:destroy,:unsubscribe,:withdraw]
+    resources:journals,only: [:index]
+  end
+
+namespace :people do
+    resources:persons, only: [:show,:edit,:update]
+    resources:teams, only: [:index,:show]
+    resources:journals, only[:index]
+  end
+  
+  namespace :group do
+    resources:persons, only:[:index,:show]
+    resources:teams, only:[:show,:edit,:update]
+    resources:journals, only:[:new,:create,:destroy,:index]
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
