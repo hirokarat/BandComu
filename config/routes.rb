@@ -6,6 +6,10 @@ devise_for :teams, skip:[:passwords],controllers: {
   registrations: "group/registrations",
   sessions: 'group/sessions'
 }
+  devise_scope :team do
+    post 'teams/guest_sign_in', to: 'teams/sessions#new_guest'
+  end
+
   
 # 顧客用
 # URL /persons/sign_in ...
@@ -13,6 +17,11 @@ devise_for :people, skip:[:passwords], controllers: {
   registrations: "people/registrations",
   sessions: 'people/sessions'
 }
+devise_for :people
+  devise_scope :person do
+    post 'people/guest_sign_in', to: 'people/sessions#new_guest'
+  end
+
   
 # 管理者用
 # URL /admin/sign_in ...
