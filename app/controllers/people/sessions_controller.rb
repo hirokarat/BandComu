@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class People::SessionsController < Devise::SessionsController
+  def new_guest_person
+    person = Person.guest
+    sign_in person   # ユーザーをログインさせる
+    redirect_to people_my_page_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+  
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
