@@ -17,7 +17,6 @@ devise_for :people, skip:[:passwords], controllers: {
   registrations: "people/registrations",
   sessions: 'people/sessions'
 }
-devise_for :people
   devise_scope :person do
     post 'people/guest_sign_in', to: 'people/sessions#new_guest'
   end
