@@ -38,7 +38,7 @@ namespace :admin do
 namespace :people do
     resources:persons, only: [:show,:edit,:update]
     resources:teams, only: [:index,:show]
-    resources:journals, only[:index]
+    resources:journals, only:[:index]
   end
   
   namespace :group do

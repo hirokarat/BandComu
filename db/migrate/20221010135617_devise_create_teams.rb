@@ -6,7 +6,18 @@ class DeviseCreateTeams < ActiveRecord::Migration[6.1]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-
+      t.integer :age,               null: false
+      t.integer :count,             null: false
+      t.integer :genre,             null: false, default: "0"
+      t.integer :area,              null: false, default: "0"
+      t.string :part
+      t.string :condition
+      t.integer :cost
+      t.string :practice_date
+      t.string :practice_area
+      t.string :location
+      t.text :introduction
+      
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
