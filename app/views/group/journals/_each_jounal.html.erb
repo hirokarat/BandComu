@@ -1,0 +1,15 @@
+<% @journals.each do |journal| %>
+
+  <p>画像</p>
+  <% if journal.activity_image.attached? %>
+    <%= image_tag journal.get_activity_image(200,200)%>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
+  
+  <p>活動日誌</p>
+  <span>
+    <%=journal.journal %>
+  </span>
+  
+<% end %>
