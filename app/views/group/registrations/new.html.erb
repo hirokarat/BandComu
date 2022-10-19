@@ -10,11 +10,54 @@
       <%= f.text_field :name, autocomplete: "name", placeholder: "BandMan",class: "col-2 me-4" %>
       </div>
       
-      <!--integerのテキストボックスを作る-->
+      <div class="form-group row">
+      <%= f.label "バンドの人数", class: "col-3" %>
+      <%= f.select :count, *[1..70] %>
+      </div>
+      
+      <div class="form-group row">
+      <%= f.label "ジャンル", class: "col-3" %>
+      <%= f.select :genre, Team.genres.keys, {} %>
+      </div>
+      
+      <div class="form-group row">
+      <%= f.label "活動エリア", class: "col-3" %>
+      <%= f.select :area, Team.areas.keys, {} %>
+      </div>
+      
+      <div class="form-group row">
+      <%= f.label "募集パート", class: "col-3" %>
+      <%= f.text_field :part, autocomplete: "part", placeholder: "ギター経験2年、ベース経験1年",class: "col-2 me-4" %>
+      </div>
+      
+      <div class="form-group row">
+      <%= f.label "募集条件", class: "col-3" %>
+      <%= f.text_field :condition, autocomplete: "condition", placeholder: "18歳以上、未経験歓迎",class: "col-2 me-4" %>
+      </div>
+      
+      <div class="form-group row">
+      <%= f.label "活動費用", class: "col-3" %>
+      <%= f.text_field :cost, autocomplete: "cost",class: "col-2 me-4" %>円
+      </div>
      
       <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, , placeholder: "hanako.yanmada@gmail.com", autocomplete: "email" %>
+      </div>
+      
+      <div class="form-group row">
+      <%= f.label "練習日", class: "col-3" %>
+      <%= f.text_field :practice_date, autocomplete: "practice_date", placeholder: "毎週日曜日",class: "col-2 me-4" %>
+      </div>
+      
+      <div class="form-group row">
+      <%= f.label "練習場所", class: "col-3" %>
+      <%= f.text_field :practice_area, autocomplete: "practice_area", placeholder: "〇〇ホール",class: "col-2 me-4" %>
+      </div>
+      
+      <div class="form-group row">
+      <%= f.label "演奏先", class: "col-3" %>
+      <%= f.text_field :location, autocomplete: "location", placeholder: "〇〇ホール",class: "col-2 me-4" %>
       </div>
     
       <div class="field">
