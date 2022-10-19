@@ -20,7 +20,7 @@ class Team < ApplicationRecord
   end
   
   enum genre:{"---":0,
-              軽音楽:1,吹奏楽:2,管弦楽:
+              軽音楽:1,吹奏楽:2,管弦楽:3
   }
   
   enum area:{
