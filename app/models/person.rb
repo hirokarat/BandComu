@@ -16,5 +16,10 @@ class Person < ApplicationRecord
       person.birthday = '2000-01-01'
     end
   end
+  
+  def age(birthday)
+    birthday_format = "%Y%m%d"
+    (birthday.strftime(birthday_format).to_i - born_on.strftime(birthday_format).to_i) / 10000
+  end
          
 end
