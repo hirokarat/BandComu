@@ -1,0 +1,39 @@
+<div class="cover-user-show">
+  <div class="container">
+    <div class="row justify-content-center">
+      <% if person_signed_in? && @person == current_person %>
+      <h1 class="font-weight-normal mt-5 mb-5">マイページ</h1>
+      <% else %>
+      <h1 class="font-weight-normal mt-5 mb-5"><%= @person.first_name %>さんのページ</h1>
+      <% end %>
+    </div>
+    
+    <div class="row" style="margin-left: 0; margin-right: 0;">
+      <h4 class="d-flex align-items-center justify-content-center" style="margin-bottom: 0;"><strong>登録情報</strong></h4>
+      <%= link_to "編集する", class: "btn btn-success col-1 ml-3" %>
+    </div>
+    
+     <table class="col-6 table table-bordered mt-3 mb-5">
+      <tr>
+        <td class="table-active border border-dark">氏名</td>
+        <td class="border border-dark"><%= @person.last_name %> <%= @person.first_name %></td>
+      </tr>
+      <tr>
+        <td class="table-active border border-dark">カナ</td>
+        <td class="border border-dark"><%= @person.last_name_kana %> <%= @person.first_name_kana %></td>
+      </tr>
+      <tr>
+        <td class="table-active border border-dark">電話番号</td>
+        <td class="border border-dark"><%= @person.telephone_number %></td>
+      </tr>
+      <tr>
+        <td class="table-active border border-dark">年齢</td>
+        <td class="border border-dark"><%= @person.%></td>
+      </tr>
+      <tr>
+        <td class="table-active border border-dark">メールアドレス</td>
+        <td class="border border-dark"><%= @person.email %></td>
+      </tr>
+    </table>
+  </div>
+</div>
