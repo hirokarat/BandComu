@@ -1,0 +1,8 @@
+<% @teams.each do |team| %>
+  <%= team.name %>
+  <%= team.introduction %>
+<% end %>
+
+<div>
+  <%= paginate @teams %>
+</div>

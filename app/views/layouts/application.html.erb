@@ -43,10 +43,12 @@
                   </ul>
                 </li>
               </ul>
-              <form class="d-flex mt-3 mt-lg-0" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+              
+              <%= form_with url: people_teams_path, method: :get,class: "d-flex mt-3 mt-lg-0", local: true do |f| %> <!--検索フォーム-->
+                  <%= f.text_field :name_cont, placeholder: '名前を入力...',class: "form-control me-2" %>
+                  <%= f.submit ("Search"),class: "btn btn-outline-success" %>
+              <% end %>
+                
             </div>
           </div>
         </div>
