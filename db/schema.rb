@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2022_10_17_142208) do
   create_table "teams", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "name", null: false
     t.integer "age", null: false
     t.integer "count", null: false
     t.integer "genre", default: 0, null: false
