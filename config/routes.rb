@@ -37,7 +37,11 @@ namespace :admin do
 
 namespace :people do
     resources:persons, only: [:show,:edit,:update]
-    resources:teams, only: [:index,:show]
+    resources:teams, only: [:index,:show] do
+      collection do
+        get 'search'
+      end
+    end
     resources:journals, only:[:index]
   end
   
