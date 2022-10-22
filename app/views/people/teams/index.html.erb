@@ -1,3 +1,11 @@
+<h1>people/team/indexページ</h1>
+<%= form_with model: @team,  method: :get,url: people_teams_path, local: true  do |f| %>
+  <%= f.select :area, Team.areas.keys, {} %>
+  <%= submit_tag "絞り込み" %>
+<% end %>
+
+
+
 <% @teams.each do |team| %>
   <%= team.name %>
   <%= team.introduction %>
