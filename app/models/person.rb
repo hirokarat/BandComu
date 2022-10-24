@@ -3,6 +3,9 @@ class Person < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  
+  has_many :bookmarks, dependent: :destroy
          
   def self.guest_person
     find_or_create_by!(email: 'aaa@aaa.com') do |person|

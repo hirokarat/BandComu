@@ -1,7 +1,7 @@
 class Journal < ApplicationRecord
   has_one_attached :activity_image
   
-   belongs_to :tea
+   belongs_to :team
   
   def get_activity_image(width, height)
       unless activity_image.attached?
