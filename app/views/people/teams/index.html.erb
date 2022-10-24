@@ -1,6 +1,7 @@
 <h1>people/team/indexページ</h1>
 <%= form_with model: @team,  method: :get,url: people_teams_path, local: true  do |f| %>
   <%= f.select :area, Team.areas.keys, {} %>
+  <%= f.select :genre, Team.genres.keys, {} %>
   <%= submit_tag "絞り込み" %>
 <% end %>
 

@@ -4,7 +4,8 @@ class Team < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :post_images, dependent: :destroy
+  has_many :journals, dependent: :destroy
+  has_many :favorites, dependent: :destroy
          
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |team|
