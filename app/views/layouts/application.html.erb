@@ -22,27 +22,107 @@
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li>
-                      <hr class="dropdown-divider">
+              <% if team_signed_in? %>
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_team_session_path, method: :delete, class: 'nav-link' %>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                
+              <% elsif person_signed_in? %>
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_person_session_path, method: :delete, class: 'nav-link' %>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                
+                <% elsif admin_signed_in? %>
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li class="nav-item">
+                      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link' %>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                          <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      </ul>
+                    </li>
                   </ul>
-                </li>
-              </ul>
+                
+                <% else %>
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "団体新規登録",new_team_registration_path, class: 'nav-link' %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "個人新規登録",new_person_registration_path, class: 'nav-link' %>
+                    </li>
+                    <li class="nav-item">
+                       <%= link_to "団体ログイン",new_team_session_path, class: 'nav-link' %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "団体ログイン", new_person_session_path, class: 'nav-link' %>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                          <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                <% end %>
               
               <%= form_with url: people_teams_path, method: :get,class: "d-flex mt-3 mt-lg-0", local: true do |f| %> <!--検索フォーム-->
                   <%= f.text_field :name_cont, placeholder: '名前を入力...',class: "form-control me-2" %>

@@ -26,6 +26,11 @@
       </div>
       
       <div class="form-group row">
+      <%= f.label "楽団の平均年齢", class: "col-3" %>
+      <%= f.text_field :age, autocomplete: "age",class: "col-2 me-4" %>歳
+      </div>
+      
+      <div class="form-group row">
       <%= f.label "募集パート", class: "col-3" %>
       <%= f.text_field :part, autocomplete: "part", placeholder: "ギター経験2年、ベース経験1年",class: "col-2 me-4" %>
       </div>

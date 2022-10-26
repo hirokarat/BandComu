@@ -20,6 +20,8 @@ class Team < ApplicationRecord
     end
   end
   
+  
+  
   enum genre:{"---":0,
               軽音楽:1,吹奏楽:2,管弦楽:3
   },_prefix: true

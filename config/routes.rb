@@ -44,7 +44,11 @@ namespace :people do
         get 'search'
       end
     end
-    resources:journals, only:[:index]
+    resources:journals, only:[:index,:show] do
+      collection do
+        get "search_tag"
+      end
+    end
   end
   
   namespace :group do
@@ -52,8 +56,10 @@ namespace :people do
     resources:teams, only:[:show,:edit,:update] do
        resource :bookmarks, only: [:create, :destroy]
     end
-    resources:journals, only:[:new,:create,:destroy,:index]
+    resources:journals, only:[:new,:create,:destroy,:index,:show,:edit,:update]
   end
+  
+  get 'homes/top',as: 'top'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

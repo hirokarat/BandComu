@@ -1,17 +1,22 @@
 <h1>新規投稿</h1>
 <%= form_with model: @journal, url: '/journals', method: :post do |f| %>
-  
+
   <div class="form-group row">
     <p class="col-md-4">画像</p>
     <%= f.file_field :activity_image, accept: "image/*" %>
   </div>
-  
+
   <div class="form-group mb-3 row">
     <%= f.label :"活動日誌", class: "col-sm-4 control-label" %>
     <%= f.text_area :journal, class: "col-sm-7 control-label explanation" %>
   </div>
-  
-  
-  <%= f.submit '投稿' %>
-  
+
+  <div class="field">
+    <%= f.label"タグ (,で区切ると複数タグ登録できます)" %>
+    <%= f.text_field :name,value: @tag_list,class:"form-control"%>
+  </div>
+
+  <div class="actions" style="margin:20px 0;">
+    <%= f.submit "投稿",class:"btn btn-outline-primary btn-block" %>
+  </div>
 <% end %>
