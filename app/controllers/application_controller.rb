@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(Admin)
       admin_root_path
-    else
-      root_path
+    elsif resource_or_scope.is_a?(Group)
+      group_team_path
     end
   end
 
@@ -15,13 +15,13 @@ class ApplicationController < ActionController::Base
     if resource_or_scope == :admin
       new_admin_session_path
     else
-      root_path
+      top_path
     end
   end
 
   def user_shut_out
     unless admin_signed_in?
-      redirect_to root_path
+      redirect_to top_path
     end
   end
   
@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up,keys:[:email])
+    devise_parameter_sanitizer.permit(:sign_up,keys:[:name,:email,:age,:area,:count,:genre])
   end
 
 end

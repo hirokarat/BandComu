@@ -1,15 +1,12 @@
 <h1>投稿一覧</h1>
 <!--タグリスト-->
 <% @tag_list.each do |list|%>
-<%=list.name %>
+<%=list.name%>
 <%="(#{list.journals.count})" %><% end %>
 
 投稿一覧画面で投稿に紐づくタグを表示
 <% @journals.each do |journal| %>
 <i class="fas fa-tag"><%= journal.tags.map(&:name).join(', ') %></i>
-
-
-<% @journals.each do |journal| %>
 
   <p>画像</p>
   <% if journal.activity_image.attached? %>
@@ -24,4 +21,6 @@
   </span>
   
 <% end %>
+
+
 

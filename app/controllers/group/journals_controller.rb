@@ -6,20 +6,46 @@ class Group::JournalsController < ApplicationController
   
   def create
     @journal=Journal.new(journal_params)
+    @journal.team_id=current_team.id
+    # 受け取った値を,で区切って配列にする
+    tag_list=params[:journal][:name].split(',')
     if @journal.save
-      flash[:notice] = "投稿を作成しました"
-      redirect_to index
+       @journal.save_tag(tag_list)
+      redirect_to journals_path(@journal),notice:'投稿完了しました:)'
     else
       render new
     end
   end
   
   def index
-    @journals=Journal.all
+    @journals = Post.page(params[:page]).per(10)
+    @tag_list=Tag.all
   end
   
   def destroy
     
+  end
+  
+  def show
+    @journal = Journal.find(params[:id])
+    @journal_comment=JournalComment.new
+    @journal_tags = @journal.tags
+  end
+  
+  def edit
+    @journal = Journal.find(params[:id])
+    @tag_list=@journal.tags.pluck(:name).join(',')
+  end
+  
+  def update
+    @journal = Journal.find(params[:id])
+    tag_list=params[:journal][:name].split(',')
+    if @journal.update(journal_params)
+       @journal.save_tag(tag_list)
+       redirect_to journal_path(@journal.id),notice:'投稿完了しました:)'
+    else
+      render:edit
+    end
   end
   
   private
