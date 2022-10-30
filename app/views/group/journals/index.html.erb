@@ -1,27 +1,39 @@
 <h1>投稿一覧</h1>
+
+<div>
+  <%= form_with url: group_journals_path, method: :get, class: '自由に' do %>
+  <%= select_tag :tag_id,
+    options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+    {
+      prompt: 'タグで絞り込み',
+      class: '自由に',
+      onchange: 'submit(this.form);'
+    }%>
+     <%= f.collection_check_boxes :area, Team.areas, :first, :first do |s| %>
+    　<%= s.check_box value: @areas %>
+    　<%= s.label { Task.human_attribute_name("status.#{s.text}")} %>
+    
+<% end %>
+</div>
+
 <!--タグリスト-->
 <% @tag_list.each do |list|%>
 <%=list.name %>
-<%="(#{list.journals.count})" %><% end %>
+<%="(#{list.journals.count})" %>
+<% end %>
 
 投稿一覧画面で投稿に紐づくタグを表示
 <% @journals.each do |journal| %>
 <i class="fas fa-tag"><%= journal.tags.map(&:name).join(', ') %></i>
 
-
-<% @journals.each do |journal| %>
-
   <p>画像</p>
-  <% if journal.activity_image.attached? %>
-    <%= image_tag journal.get_activity_image(200,200)%>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
+  <%= image_tag journal.get_activity_image(100,100)%>
   
   <p>活動日誌</p>
   <span>
     <%=journal.journal %>
   </span>
+  <p><%= link_to 'このユーザーの投稿一覧へ', group_journals_path(journal.team_id)%></p>
   
 <% end %>
 

@@ -1,26 +1,25 @@
 <h1>投稿一覧</h1>
 <!--タグリスト-->
 <% @tag_list.each do |list|%>
-<%=list.name%>
-<%="(#{list.journals.count})" %><% end %>
+<%=list.name %>
+<%="(#{list.journals.count})" %>
+<% end %>
 
 投稿一覧画面で投稿に紐づくタグを表示
 <% @journals.each do |journal| %>
 <i class="fas fa-tag"><%= journal.tags.map(&:name).join(', ') %></i>
 
   <p>画像</p>
-  <% if journal.activity_image.attached? %>
-    <%= image_tag journal.get_activity_image(200,200)%>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
+  <%= image_tag journal.get_activity_image(100,100)%>
   
   <p>活動日誌</p>
   <span>
     <%=journal.journal %>
   </span>
+  <p><%= link_to 'このユーザーの投稿一覧へ', group_journals_path(journal.team_id)%></p>
   
 <% end %>
+
 
 
 

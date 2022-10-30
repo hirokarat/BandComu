@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(Admin)
       admin_root_path
-    elsif resource_or_scope.is_a?(Group)
-      group_team_path
+    else
+      top_path
     end
   end
 
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_up_path_for(resource_or_scope)
-    my_page_path
+    toppath
   end
  
   def set_search

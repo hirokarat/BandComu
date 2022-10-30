@@ -11,15 +11,19 @@ class Group::JournalsController < ApplicationController
     tag_list=params[:journal][:name].split(',')
     if @journal.save
        @journal.save_tag(tag_list)
-      redirect_to journals_path(@journal),notice:'投稿完了しました:)'
+      redirect_to group_journals_path(@journal),notice:'投稿完了しました:)'
     else
       render new
     end
   end
   
   def index
-    @journals = Post.page(params[:page]).per(10)
+    @journals = Journal.page(params[:page]).per(10)
     @tag_list=Tag.all
+  end
+  
+  def index_team
+    @journals = Journal.where(team_id:params[:id])
   end
   
   def destroy
