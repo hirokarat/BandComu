@@ -56,7 +56,11 @@ namespace :people do
     resources:teams, only:[:show,:edit,:update] do
        resource :bookmarks, only: [:create, :destroy]
     end
-    resources:journals, only:[:new,:create,:destroy,:index,:show,:edit,:update]
+    resources:journals, only:[:new,:create,:destroy,:index,:show,:edit,:update] do
+      member do
+        get :index_jounal
+      end
+    end
   end
   
   get 'homes/top',as: 'top'
