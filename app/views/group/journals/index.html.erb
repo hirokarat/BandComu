@@ -9,10 +9,6 @@
       class: '自由に',
       onchange: 'submit(this.form);'
     }%>
-     <%= f.collection_check_boxes :area, Team.areas, :first, :first do |s| %>
-    　<%= s.check_box value: @areas %>
-    　<%= s.label { Task.human_attribute_name("status.#{s.text}")} %>
-    
 <% end %>
 </div>
 

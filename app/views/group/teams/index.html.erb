@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="admin-customer pt-5">
+    <h4 class="alert alert-secondary  col-2" role="alert">会員一覧</h4>
+      
+      <h1>ユーザー検索</h1>
+        <%= search_form_for @q, url: search_group_teams_path do |f| %>
+          <%= f.label "活動エリア", class: "col-3" %>
+          <%= f.select :area, Team.areas.keys, {} %>
+          <%= f.label :area, '活動エリア' %>
+          <br>
+          <%= f.submit '検索' %>
+        <% end %>
+    
+    <table class="table">
+      <tr class="table-active">
+        <th>会員ID</th>
+        <th>活動エリア</th>
+        <th>メールアドレス</th>
+      </tr>
+      <% @teams.each do |team| %>
+        <tr>
+          <td>
+            <%= team.id %>
+          </td>
+          <td>
+            <%= team.area%>
+          </td>
+          <td>
+            <%= team.email %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="pagenate">
+      <%= paginate @teams %>
+    </div>
+  </div>
+</div>

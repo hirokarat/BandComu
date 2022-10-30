@@ -53,8 +53,11 @@ namespace :people do
   
   namespace :group do
     resources:peolpe, only:[:index,:show]
-    resources:teams, only:[:show,:edit,:update] do
-       resource :bookmarks, only: [:create, :destroy]
+    resources:teams, only:[:index,:show,:edit,:update] do
+      collection do
+      get 'search'
+      end
+      resource :bookmarks, only: [:create, :destroy]
     end
     resources:journals, only:[:new,:create,:destroy,:index,:show,:edit,:update] do
       member do
