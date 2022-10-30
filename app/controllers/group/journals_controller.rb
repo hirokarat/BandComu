@@ -23,7 +23,6 @@ class Group::JournalsController < ApplicationController
     @journals = params[:tag_id].present? ? Tag.find(params[:tag_id]).journals : Journal.all
   end
   
- 
   
   def destroy
     
@@ -53,7 +52,7 @@ class Group::JournalsController < ApplicationController
   
   private
   def journal_params
-    params.require(:journal).permit(:journal, :activity_image,tag_ids: [])  
+    params.require(:journal).permit(:journal,:team_id,:activity_image,tag_ids: [])  
   end
   
   
