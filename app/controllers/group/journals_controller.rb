@@ -20,11 +20,10 @@ class Group::JournalsController < ApplicationController
   def index
     @journals = Journal.page(params[:page]).per(10)
     @tag_list=Tag.all
+    @journals = params[:tag_id].present? ? Tag.find(params[:tag_id]).journals : Journal.all
   end
   
-  def index_team
-    @journals = Journal.where(team_id:params[:id])
-  end
+ 
   
   def destroy
     
@@ -54,7 +53,7 @@ class Group::JournalsController < ApplicationController
   
   private
   def journal_params
-    params.require(:journal).permit(:journal, :activity_image)  
+    params.require(:journal).permit(:journal, :activity_image,tag_ids: [])  
   end
   
   
