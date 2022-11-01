@@ -1,23 +1,40 @@
 <h1>投稿一覧</h1>
-<!--タグリスト-->
-<% @tag_list.each do |list|%>
-<%=list.name %>
-<%="(#{list.journals.count})" %>
-<% end %>
 
-投稿一覧画面で投稿に紐づくタグを表示
+<div>
+  タグで探す
+  <% @tag_lists.each do |list| %>
+  <%= link_to list.name, people_journals_path(tag_id: list.id), class: 'tag_list'%>
+  <%="(#{list.journals.count})" %>
+  <% end %>
+ 
+</div>
+
 <% @journals.each do |journal| %>
-<i class="fas fa-tag"><%= journal.tags.map(&:name).join(', ') %></i>
+  
+  <i class="fas fa-tag"><%= journal.tags.map(&:name).join(', ') %></i>
+ 
+  <div>
+    <div>
+      投稿者
+      <%= journal.team.name%>
+    </div>
+    <div>
+      画像
+      <%= link_to people_journal_path(journal.id) do %>
+      <%= image_tag journal.get_activity_image(100,100)%>
+      <% end %>
+    </div>
+  
+    <div>
+    活動日誌
+      <span>
+        <%=journal.journal %>
+      </span>
+    </div>
+    <p><%= link_to 'このユーザーの詳細へ', people_team_path(journal.team_id)%></p>
+  </div>
 
-  <p>画像</p>
-  <%= image_tag journal.get_activity_image(100,100)%>
-  
-  <p>活動日誌</p>
-  <span>
-    <%=journal.journal %>
-  </span>
-  <p><%= link_to 'このユーザーの投稿一覧へ', group_journals_path(journal.team_id)%></p>
-  
+
 <% end %>
 
 

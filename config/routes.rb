@@ -59,7 +59,10 @@ namespace :people do
       end
       resource :bookmarks, only: [:create, :destroy]
     end
-    resources:journals, only:[:new,:create,:destroy,:index,:show,:edit,:update] do
+    resources:journals, only:[:new,:create,:index,:show,:edit,:update,:destroy] do
+      collection do
+        get "search_tag"
+      end
     end
   end
   
