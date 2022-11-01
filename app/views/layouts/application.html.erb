@@ -12,7 +12,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Offcanvas navbar large">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">BandComu</a>
+          <%= link_to "BandComu", top_path, class: 'navbar-brand' %>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -101,6 +101,9 @@
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
                       <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "活動日誌",people_journals_path, class: 'nav-link' %>
                     </li>
                     <li class="nav-item">
                       <%= link_to "団体新規登録",new_team_registration_path, class: 'nav-link' %>

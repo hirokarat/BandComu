@@ -1,4 +1,10 @@
-<!--タグ-->
-  <% @journal_tags.each do |tag| %>
-  <%= link_to tag.name,search_tag_path(tag_id: tag.id)%><%="(#{tag.journals.count})" %>
-  <% end %>
+ 
+ <div>
+  <%= image_tag @journal.get_activity_image(100,100)%>
+  <%= @journal.journal%>
+  投稿日：<%= @journal.created_at.strftime('%Y/%m/%d') %>
+ </div>
+ <% @journal_tags.each do |tag| %>
+   <%= link_to tag.name,search_tag_group_journals_path(tag_id: tag.id)%><%="(#{tag.journals.count})" %>
+ <% end %>
+ <%= link_to "削除", group_journal_path(@journal.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
