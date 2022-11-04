@@ -11,6 +11,10 @@ class People::TeamsController < ApplicationController
     render :index
   end
   
+  def show
+    @team=Team.find(params[:id])
+  end
+  
   
   private
   def team_params

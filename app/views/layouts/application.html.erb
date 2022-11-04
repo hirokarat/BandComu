@@ -54,7 +54,13 @@
               <% elsif person_signed_in? %>
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <%= link_to "Home", top_path, class: 'nav-link active' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "チーム一覧", people_teams_path, class: 'nav-link' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "活動日誌", people_journals_path, class: 'nav-link' %>
                   </li>
                   <li class="nav-item">
                     <%= link_to "ログアウト", destroy_person_session_path, method: :delete, class: 'nav-link' %>

@@ -50,7 +50,6 @@ class Group::JournalsController < ApplicationController
 
   def show
     @journal = Journal.find(params[:id])
-
     @journal_tags = @journal.tags
   end
 

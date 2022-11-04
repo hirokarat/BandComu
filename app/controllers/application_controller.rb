@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_up_path_for(resource_or_scope)
-    toppath
+    top_path
   end
  
   def set_search
@@ -38,7 +38,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up,keys:[:name,:email,:age,:area,:count,:genre])
+    devise_parameter_sanitizer.permit(:sign_up,keys:[:name,:email,:age,:area,:count,:genre,
+    :last_name,:first_name,:last_name_kana,:first_name_kana,:telephone_number,:birthday
+    ])
   end
 
 end

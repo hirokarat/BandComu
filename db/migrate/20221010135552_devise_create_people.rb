@@ -9,6 +9,7 @@ class DeviseCreatePeople < ActiveRecord::Migration[6.1]
       t.string :last_name,          null: false
       t.string :first_name,         null: false
       t.string :last_name_kana,     null: false
+      t.string :first_name_kana,     null: false
       t.string :telephone_number,   null: false
       t.date :birthday,             null: false
       t.string :favorite_instrument

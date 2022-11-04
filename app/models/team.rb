@@ -3,10 +3,10 @@ class Team < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many :journals, dependent: :destroy
   has_many :favorites, dependent: :destroy
-         
+
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |team|
       team.password = SecureRandom.urlsafe_base64
@@ -19,11 +19,15 @@ class Team < ApplicationRecord
 
     end
   end
-  
+
+  def bookmarked_by?(team)
+    bookmarks.where(team_id: team).exists?
+  end
+
   enum genre:{"---":0,
               軽音楽:1,吹奏楽:2,管弦楽:3
   },_prefix: true
-  
+
   enum area:{
      "---":0,
      北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
@@ -36,8 +40,8 @@ class Team < ApplicationRecord
      福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,
      沖縄県:47
    }, _prefix: true
-   
-  
+
+
    scope :get_by_area, ->(area) {where(area: area)}
    scope :get_by_genre, ->(genre) {where(genre: genre)}
    scope :get_by_area_genre, ->(area,genre){where(area: area,genre: genre)}
