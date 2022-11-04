@@ -3,17 +3,21 @@
     <h4 class="alert alert-secondary  col-2" role="alert">会員一覧</h4>
       
       <h1>ユーザー検索</h1>
-        <%= search_form_for @q, url: search_group_teams_path do |f| %>
-          <%= f.label "活動エリア", class: "col-3" %>
-          <%= f.select :area, Team.areas.keys, {} %>
-          <%= f.label :area, '活動エリア' %>
-          <br>
-          <%= f.submit '検索' %>
-        <% end %>
+       <div>
+        <%= form_tag(group_teams_path, method: "get") do %>
+          <%= label_tag :area, "活動エリア" %>
+          <%= select_tag :area, options_for_select(Team.areas), include_blank: true, value: params[:area]%>
+          <%= label_tag :genre, "ジャンル" %>
+          <%= select_tag :genre, options_for_select(Team.genres), include_blank: true, value: params[:genre]%>
+          <%= submit_tag "検索" %>
+       <% end %>
+        </div>
+    
     
     <table class="table">
       <tr class="table-active">
         <th>会員ID</th>
+        <th>ジャンル</th>
         <th>活動エリア</th>
         <th>メールアドレス</th>
       </tr>
@@ -21,6 +25,9 @@
         <tr>
           <td>
             <%= team.id %>
+          </td>
+          <td>
+            <%= team.genre %>
           </td>
           <td>
             <%= team.area%>
@@ -32,7 +39,8 @@
       <% end %>
     </table>
     <div class="pagenate">
-      <%= paginate @teams %>
+      
     </div>
+    
   </div>
 </div>

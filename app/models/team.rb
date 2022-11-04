@@ -20,8 +20,6 @@ class Team < ApplicationRecord
     end
   end
   
-  
-  
   enum genre:{"---":0,
               軽音楽:1,吹奏楽:2,管弦楽:3
   },_prefix: true
@@ -38,5 +36,9 @@ class Team < ApplicationRecord
      福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,
      沖縄県:47
    }, _prefix: true
+   
   
+   scope :get_by_area, ->(area) {where(area: area)}
+   scope :get_by_genre, ->(genre) {where(genre: genre)}
+   scope :get_by_area_genre, ->(area,genre){where(area: area,genre: genre)}
 end
