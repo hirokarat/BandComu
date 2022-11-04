@@ -1,17 +1,46 @@
-<h1>people/team/indexページ</h1>
-<%= form_with model: @team,  method: :get,url: people_teams_path, local: true  do |f| %>
-  <%= f.select :area, Team.areas.keys, {} %>
-  <%= f.select :genre, Team.genres.keys, {} %>
-  <%= submit_tag "絞り込み" %>
-<% end %>
+<div class="container">
+  <div class="admin-customer pt-5">
+    <h4 class="alert alert-secondary  col-2" role="alert">会員一覧</h4>
+
+      <h1>ユーザー検索</h1>
+       <div>
+        <%= form_tag(people_teams_path, method: "get") do %>
+          <%= label_tag :area, "活動エリア" %>
+          <%= select_tag :area, options_for_select(Team.areas), include_blank: true, value: params[:area]%>
+          <%= label_tag :genre, "ジャンル" %>
+          <%= select_tag :genre, options_for_select(Team.genres), include_blank: true, value: params[:genre]%>
+          <%= submit_tag "検索" %>
+       <% end %>
+        </div>
 
 
+    <table class="table">
+      <tr class="table-active">
+        <th>団体名</th>
+        <th>ジャンル</th>
+        <th>活動エリア</th>
+        <th>メールアドレス</th>
+      </tr>
+      <% @teams.each do |team| %>
+        <tr>
+          <td>
+            <%= link_to team.name, people_team_path(team), class: "text-dark" %>
+          </td>
+          <td>
+            <%= team.genre %>
+          </td>
+          <td>
+            <%= team.area%>
+          </td>
+          <td>
+            <%= team.email %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="pagenate">
 
-<% @teams.each do |team| %>
-  <%= team.name %>
-  <%= team.introduction %>
-<% end %>
+    </div>
 
-<div>
-  <%= paginate @teams %>
+  </div>
 </div>

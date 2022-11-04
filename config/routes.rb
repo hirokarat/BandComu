@@ -36,10 +36,9 @@ namespace :admin do
   end
 
 namespace :people do
-    resources:peolpe, only: [:show,:edit,:update] do
-      get :bookmarks, on: :collection 
-    end
+    resources:peolpe, only: [:show,:edit,:update]
     resources:teams, only: [:index,:show] do
+      resource :bookmarks, only: [:create, :destroy]
       collection do
         get 'search'
       end

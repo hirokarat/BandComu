@@ -1,13 +1,25 @@
-<% if @team.favorited_by?(current_user) %>
-    <p>
-      <%= link_to team_bookmarks_path(@team), method: :delete do %>
-        ♥<%= @team.bookmarks.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to team_bookmarks_path(@team), method: :post do %>
-        ♡<%= @team.bookmarks.count %> いいね
-      <% end %>
-    </p>
-  <% end %>
+
+
+<div class="container">
+  <div class="admin-customer-show pt-5">
+    <h4 class="alert alert-secondary col-4" role="alert"><%= @team.name %></h4>
+    <table class="w-100 admin-customer-show">
+      <tr class="row pb-3">
+        <td class="col-md-2">団体名</td>
+        <td class="col-md-10"><%= @team.name %></td>
+      </tr>
+      <tr class="row pb-3">
+        <td class="col-md-2">エリア</td></td>
+        <td class="col-md-10"><%= @team.area %></td>
+      </tr>
+      <tr class="row pb-3">
+        <td class="col-md-2">ジャンル</td>
+        <td class="col-md-10"><%= @team.genre %></td>
+      </tr>
+      <tr class="row pb-3">
+        <td class="col-md-2">メールアドレス</td>
+        <td class="col-md-10"><%= @team.email %></td>
+      </tr>
+    </table>
+  </div>
+</div>
