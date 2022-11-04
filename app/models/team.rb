@@ -5,7 +5,7 @@ class Team < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :journals, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |team|
