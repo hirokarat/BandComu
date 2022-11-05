@@ -30,9 +30,12 @@ class ApplicationController < ActionController::Base
   end
  
   def set_search
-    @search = Team.ransack(params[:q])
-    @search_teams = @search.result
+    @query = { name_cont: params[:q] }
+    @search = Team.ransack(@query)
+    @search_teams = @search.result.order(created_at: :desc).page(params[:page])
   end
+  
+  
   
 
   protected
