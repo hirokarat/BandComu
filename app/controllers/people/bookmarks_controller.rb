@@ -14,4 +14,8 @@ class People::BookmarksController < ApplicationController
     redirect_to people_team_path(team)
   end
   
+  def index
+    @bookmarks = Bookmark.where(team_id: current_person.id)
+  end
+  
 end

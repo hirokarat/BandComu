@@ -22,6 +22,9 @@ class People::TeamsController < ApplicationController
     @team=Team.find(params[:id])
   end
   
+  def bookmarks
+    @bookmarks = Bookmark.where(team_id: current_person.id)
+  end
   
   private
   def team_params

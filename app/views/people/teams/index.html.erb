@@ -28,13 +28,13 @@
         <% if params[:q].present? %>
           <% @search_teams.each do |team| %>
             <%= render partial: 'people/teams/teams', locals: {team: team}%>
-        <% end %>
-    </table>
+          <% end %>
         <% else %>
           <% @teams.each do |team| %>
             <%= render partial: 'people/teams/teams', locals: {team: team}%>
           <% end %>  
         <% end %>
+    </table>
     
     
     <div class="pagenate">
