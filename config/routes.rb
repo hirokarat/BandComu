@@ -40,6 +40,7 @@ namespace :people do
     resources:teams, only: [:index,:show] do
       resource :bookmarks, only: [:create, :destroy]
       collection do
+        get 'bookmarks'
         get 'search'
       end
     end

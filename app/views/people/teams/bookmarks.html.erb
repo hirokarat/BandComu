@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="admin-customer pt-5">
+    <h4 class="alert alert-secondary  col-2" role="alert">ブックマーク一覧</h4>
+    <table class="table">
+      <tr class="table-active">
+        <th>団体名</th>
+        <th>ジャンル</th>
+        <th>活動エリア</th>
+        <th>メールアドレス</th>
+      </tr>
+      <% @bookmarks.each do |bookmark| %>
+      <tr>
+        <td>
+          <%= link_to bookmark.team.name, people_teams_path(bookmark.team),  class: "text-dark"%>
+        </td>
+        <td><%= bookmark.team.genre %></td>
+        <td><%= bookmark.team.area %></td>
+        <td><%= bookmark.team.email%></td>
+      </tr>
+    <% end %>
+    </table>
+    <div class="pagenate">
+    </div>
+  </div>
+</div>
