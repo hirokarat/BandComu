@@ -2,7 +2,14 @@ class People::TeamsController < ApplicationController
   
   def index
     @teams=Team.all.page(params[:page]).per(10)
-    @area = Team.group(:area).pluck(:area).sort
+    if params[:area].present?
+      @teams = @teams.get_by_area params[:area]
+    elsif params[:genre].present?
+      @teams = @teams.get_by_genre params[:genre]
+    elsif params[:area].present? && params[:genre].present?
+      @teams=@teams.get_by_area params[:area]
+      @teams=@teams.get_by_genre params[:genre]
+    end
   end
   
   def search
