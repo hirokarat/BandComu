@@ -25,23 +25,18 @@
         <th>活動エリア</th>
         <th>メールアドレス</th>
       </tr>
-      <% @search_teams.each do |team| %>
-        <tr>
-          <td>
-            <%= link_to team.name, people_team_path(team), class: "text-dark" %>
-          </td>
-          <td>
-            <%= team.genre %>
-          </td>
-          <td>
-            <%= team.area%>
-          </td>
-          <td>
-            <%= team.email %>
-          </td>
-        </tr>
-      <% end %>
+        <% if params[:q].present? %>
+          <% @search_teams.each do |team| %>
+            <%= render partial: 'people/teams/teams', locals: {team: team}%>
+        <% end %>
     </table>
+        <% else %>
+          <% @teams.each do |team| %>
+            <%= render partial: 'people/teams/teams', locals: {team: team}%>
+          <% end %>  
+        <% end %>
+    
+    
     <div class="pagenate">
 
     </div>
