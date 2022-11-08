@@ -12,12 +12,6 @@ class People::TeamsController < ApplicationController
     end
   end
   
-  def search
-    @teams = Team.where('area LIKE ?', "%#{params[:area]}%")
-    @area = Team.group(:area).pluck(:area).sort
-    render :index
-  end
-  
   def show
     @team=Team.find(params[:id])
   end
