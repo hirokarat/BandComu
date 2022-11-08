@@ -10,7 +10,7 @@
     
     <div class="row" style="margin-left: 0; margin-right: 0;">
       <h4 class="d-flex align-items-center justify-content-center" style="margin-bottom: 0;"><strong>登録情報</strong></h4>
-      <%= link_to "編集する", class: "btn btn-success col-1 ml-3" %>
+      <%= link_to "編集する", edit_people_person_path, class: "btn btn-success col-1 ml-3" %>
     </div>
     
      <table class="col-6 table table-bordered mt-3 mb-5">
@@ -28,7 +28,7 @@
       </tr>
       <tr>
         <td class="table-active border border-dark">年齢</td>
-        <td class="border border-dark"><%= @person.%></td>
+        <td class="border border-dark"><%= @person.age(@person.birthday) %></td>
       </tr>
       <tr>
         <td class="table-active border border-dark">メールアドレス</td>
