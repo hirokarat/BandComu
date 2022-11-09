@@ -18,6 +18,7 @@ class People::PersonsController < ApplicationController
     end
   end
   
+  
   private
   
   def person_params
