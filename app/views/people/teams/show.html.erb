@@ -20,17 +20,25 @@
         <td class="col-md-10"><%= @team.email %></td>
       </tr>
     </table>
-    
-  <tbody>
-  <tr>
-    <% if @team.bookmarked_by?(current_person) %>
-      <td><%= link_to "ブックマークを外す", people_team_bookmarks_path(@team), method: :delete %></td>
-    <% else %>
-      <td><%= link_to "ブックマーク", people_team_bookmarks_path(@team), method: :post %></td>
-    <% end %>
-  </tr>
-</tbody>
-    
-    
+
+    <tbody>
+      <tr>
+        <% if @team.bookmarked_by?(current_person) %>
+          <td><%= link_to "ブックマークを外す", people_team_bookmarks_path(@team), method: :delete %></td>
+        <% else %>
+          <td><%= link_to "ブックマーク", people_team_bookmarks_path(@team), method: :post %></td>
+        <% end %>
+      </tr>
+    </tbody>
+
+    <div>
+      <% if @team.entried_by?(current_person) %>
+        <%= link_to "応募を取り消す", people_team_entries_path(@team), method: :delete %>
+      <% else %>
+        <%= link_to "応募する", people_team_entries_path(@team), method: :post %>
+      <% end %>
+    </div>
+
+
   </div>
 </div>

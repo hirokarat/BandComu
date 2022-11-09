@@ -6,6 +6,7 @@ class Team < ApplicationRecord
 
   has_many :journals, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :entries, dependent: :destroy
 
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |team|
@@ -22,6 +23,10 @@ class Team < ApplicationRecord
 
   def bookmarked_by?(team)
     bookmarks.where(team_id: team).exists?
+  end
+
+  def entried_by?(team)
+     entries.where(team_id: team).exists?
   end
 
   enum genre:{"---":0,
