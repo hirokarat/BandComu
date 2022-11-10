@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="admin-customer pt-5">
+    <h4 class="alert alert-secondary  col-2" role="alert">応募者一覧</h4>
+    <table class="table">
+      <tr class="table-active">
+        <th>名前</th>
+        <th>ナマエ</th>
+        <th>電話番号</th>
+        <th>メールアドレス</th>
+      </tr>
+      <% @entries.each do |entry| %>
+      <tr>
+        <td>
+          <%= entry.person.first_name%><%= entry.person.last_name%>
+        </td>
+        <td><%= entry.person.first_name_kana %><%= entry.person.last_name_kana%></td>
+        <td><%= entry.person.telephone_number %></td>
+        <td><%= entry.person.email%></td>
+      </tr>
+    <% end %>
+    </table>
+    <div class="pagenate">
+    </div>
+  </div>
+</div>

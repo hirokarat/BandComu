@@ -20,6 +20,11 @@ class People::TeamsController < ApplicationController
     @bookmarks = Bookmark.where(team_id: current_person.id)
   end
   
+  def entries
+    @entries = Entry.where(team_id: current_person.id)
+  end
+  
+  
   private
   def team_params
     params.require(:team).permit(:area)

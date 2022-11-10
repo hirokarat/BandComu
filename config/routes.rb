@@ -36,11 +36,12 @@ namespace :admin do
   end
 
 namespace :people do
-    resources:persons, only: [:show,:edit,:update]
+    resources:people, only: [:show,:edit,:update]
     resources:teams, only: [:index,:show] do
       resource :bookmarks, only: [:create, :destroy]
       resource :entries, only: [:create, :destroy]
       collection do
+        get 'entries'
         get 'bookmarks'
         get 'search'
       end
@@ -53,7 +54,7 @@ namespace :people do
   end
 
   namespace :group do
-    resources:peolpe, only:[:index,:show]
+    resources:persons, only:[:index,:show]
     resources:teams, only:[:index,:show,:edit,:update] do
       collection do
       get 'search'
