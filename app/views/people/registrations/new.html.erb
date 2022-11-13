@@ -1,54 +1,60 @@
-<h2>Sign up</h2>
+<div class="container mt-4">
+  <div class="form-horizontal">
+     <h2><mark>新規会員登録</mark></h2>
+     <div class="text-center bg-light">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "people/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "people/shared/error_messages", resource: resource %>
-  
-  <div class="form-group row">
-    <%= f.label "名前", class: "col-3" %>
-    <%= f.text_field :last_name, autocomplete: "last_name", placeholder: "(姓) 山田",class: "col-2 me-4" %>
-    <%= f.text_field :first_name, autocomplete: "first_name", placeholder: "(名) 花子",class: "col-2 ms-4" %>
-  </div>
-      
-  <div class="form-group mt-3 row">
-    <%= f.label "フリガナ", class: "col-3" %>
-    <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", placeholder: "(セイ) ヤマダ",class: "col-2 me-4"%>
-    <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", placeholder: "(メイ) ハナコ" ,class: "col-2 ms-4"%>
-  </div>
+        <div class="form-group mt-4 row ">
+          <%= f.label "名前", class: "mt-4 col-3" %>
+          <%= f.text_field :last_name, autocomplete: "last_name", placeholder: "(姓) 山田",class: "mt-4 col-2 me-4" %>
+          <%= f.text_field :first_name, autocomplete: "first_name", placeholder: "(名) 花子",class: "mt-4 col-2 ms-4" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  
-  <div class="form-group mt-3 row">
-    <%= f.label "電話番号(ハイフンなし)",class: "col-3"%>
-    <%= f.text_field :telephone_number, autocomplete: "telephone_number", placeholder: "0312345678",class: "col-2" %>
-  </div>
-  
-  <div class="form-group mt-3 row">
-    <%= f.label "生年月日",class: "col-3"%>
-    <%= f.date_select :birthday, {start_year: 1950, end_year: 2016,
-    include_blank: true, use_two_digit_numbers: true,use_month_numbers: true},
-    {class: "input-tab birthday-select"}%>
-  </div>
-  
+        <div class="form-group mt-3 row">
+          <%= f.label "フリガナ", class: "col-3" %>
+          <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", placeholder: "(セイ) ヤマダ",class: "col-2 me-4"%>
+          <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", placeholder: "(メイ) ハナコ" ,class: "col-2 ms-4"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+        <div class="form-group mt-3 row">
+          <%= f.label "e-mail",class: "col-3" %>
+          <%= f.email_field :email, autocomplete: "email",class: "col-2" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <div class="form-group mt-3 row">
+          <%= f.label "電話番号(ハイフンなし)",class: "col-3"%>
+          <%= f.text_field :telephone_number, autocomplete: "telephone_number", placeholder: "0312345678",class: "col-2" %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+        <div class="form-group mt-3 row">
+          <%= f.label "生年月日",class: "col-3"%>
+          <%= f.date_select :birthday, {start_year: 1950, end_year: 2016,
+          include_blank: true, use_two_digit_numbers: true,use_month_numbers: true},
+          {class: "input-tab birthday-select col-1 me-3"}%>
+        </div>
 
-<%= render "people/shared/links" %>
+
+        <div class="form-group mt-3 row">
+          <div class="col-3">
+            <%= f.label "パスワード",class: ""%>
+            (<%= @minimum_password_length%> 文字以上)
+          </div>
+            <%= f.password_field :password, autocomplete: "new-password",class: "col-2" %>
+        </div>
+
+        <div class="form-group mt-3 row">
+          <%= f.label "パスワード(確認用)",class:"col-3" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "col-2" %>
+        </div>
+            <%= f.submit "新規登録", class: "btn btn-success col-2 mt-4 mb-3" %>
+      <% end %>
+      </div>
+
+        <div class="mt-4">
+            <h3>既に登録済みの方</h3>
+            <%= link_to "こちら", new_person_session_path %>　からログインしてください。
+        </div>
+  </div>
+</div>
+

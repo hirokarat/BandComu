@@ -11,7 +11,7 @@
       <% @entries.each do |entry| %>
       <tr>
         <td>
-          <%= entry.person.first_name%><%= entry.person.last_name%>
+          <%= link_to entry.person.full_name,group_person_path(entry.person), class: "text-dark"%>
         </td>
         <td><%= entry.person.first_name_kana %><%= entry.person.last_name_kana%></td>
         <td><%= entry.person.telephone_number %></td>

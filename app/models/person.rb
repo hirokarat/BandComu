@@ -25,5 +25,13 @@ class Person < ApplicationRecord
     birthday = Date.parse('1990-10-10') 
     (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
   end
+  
+  def full_name
+    self.last_name + self.first_name
+  end
+  
+  def full_name_kana
+    self.last_name_kana + self.first_name_kana
+  end
          
 end
