@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="admin-customer-show pt-5">
+    <h4 class="alert alert-secondary col-4" role="alert"><%= @person.full_name %>さんの会員詳細</h4>
+    <table class="w-100 admin-customer-show">
+      <tr class="row pb-3">
+        <td class="col-md-2">会員ID</td>
+        <td class="col-md-10"><%= @person.id %></td>
+      </tr>
+      <tr class="row pb-3">
+        <td class="col-md-2">氏名</td>
+        <td class="col-md-10"><%= @person.full_name %></td>
+      </tr>
+      <tr class="row pb-3">
+        <td class="col-md-2">フリガナ</td>
+        <td class="col-md-10"><%= @person.full_name_kana %></td>
+      </tr>
+      <tr class="row pb-3">
+        <td class="col-md-2">電話番号</td>
+        <td class="col-md-10"><%= @person.telephone_number %></td>
+      </tr>
+      <tr class="row pb-3">
+        <td class="col-md-2">メールアドレス</td>
+        <td class="col-md-10"><%= @person.email %></td>
+      </tr>
+    </table>
+  </div>
+</div>
