@@ -1,8 +1,8 @@
 <div class="container mt-4">
   <div class="form-horizontal">
-     <h2><mark>新規会員登録</mark></h2>
+     <h2><mark>個人新規会員登録</mark></h2>
      <div class="text-center bg-light">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= form_with model: @person, url: person_registration_path, local: true  do |f| %>
         <%= render "people/shared/error_messages", resource: resource %>
 
         <div class="form-group mt-4 row ">
@@ -33,8 +33,7 @@
           include_blank: true, use_two_digit_numbers: true,use_month_numbers: true},
           {class: "input-tab birthday-select col-1 me-3"}%>
         </div>
-
-
+        
         <div class="form-group mt-3 row">
           <div class="col-3">
             <%= f.label "パスワード",class: ""%>

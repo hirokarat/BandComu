@@ -2,7 +2,7 @@
   <div class="signin text-center bg-light py-4 px-3 col-md-6 mx-auto rounded">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
- <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+ <h1 class="h3 mb-3 fw-normal">個人ログイン</h1>
   <div class="field mb-3">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control",placeholder:"name@example.com"%>
@@ -16,7 +16,9 @@
   <%= f.submit "Sign in", class: "mt-4 btn btn-primary" %>
   <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
 <% end %>
-
-<%= render "people/shared/links" %>
+  </div>
+  <div class="mt-5 text-center">
+    <h3>会員登録がお済みでない方</h3>
+    <%= link_to "こちら", team_registration_path %>　から会員登録を行ってください。
   </div>
 </div>
