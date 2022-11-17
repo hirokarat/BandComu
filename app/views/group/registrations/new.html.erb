@@ -1,86 +1,83 @@
-<div class="container">
+<div class="container mt-4">
   <div class="form-horizontal">
-    <h2><mark>新規会員登録</mark></h2>
-    <div class="mt-5">
+    <h2><mark>団体新規会員登録</mark></h2>
+    <div class="bg-light">
       <%= form_with model: @team, url: team_registration_path, local: true  do |f| %>
       <%= render "group/shared/error_messages", resource: resource %>
       
-      <div class="form-group row">
-      <%= f.label "楽団名", class: "col-3" %>
-      <%= f.text_field :name, autocomplete: "name", placeholder: "BandMan",class: "col-2 me-4" %>
+      <div class="form-group">
+      <%= f.label "楽団名", class: "mt-4 col-3 ms-4" %>
+      <%= f.text_field :name, autocomplete: "name", placeholder: "BandMan",class: "col-2 me-4 mt-4" %>
       </div>
       
-      <div class="form-group row">
-      <%= f.label "バンドの人数", class: "col-3" %>
-      <%= f.select :count, *[1..70] %>
+      <div class="form-group">
+      <%= f.label "バンドの人数", class: "mt-4 col-3 ms-4" %>
+      <%= f.select :count, *[1..70] ,class: "me-4 col-2 mt-4"%>
       </div>
       
-      <div class="form-group row">
-      <%= f.label "ジャンル", class: "col-3" %>
-      <%= f.select :genre, Team.genres.keys, {} %>
+      <div class="form-group">
+      <%= f.label "ジャンル", class: "mt-4 col-3 ms-4" %>
+      <%= f.select :genre, Team.genres.keys, {} ,class:"me-4 col-2 mt-4"%>
       </div>
       
-      <div class="form-group row">
-      <%= f.label "活動エリア", class: "col-3" %>
-      <%= f.select :area, Team.areas.keys, {} %>
+      <div class="form-group">
+      <%= f.label "活動エリア", class: "mt-4 col-3 ms-4" %>
+      <%= f.select :area, Team.areas.keys, {} ,class:"me-4 col-2 mt-4"%>
       </div>
       
-      <div class="form-group row">
-      <%= f.label "楽団の平均年齢", class: "col-3" %>
-      <%= f.text_field :age, autocomplete: "age",class: "col-2 me-4" %>歳
+      <div class="form-group">
+      <%= f.label "楽団の平均年齢", class: "mt-4 col-3 ms-4" %>
+      <%= f.text_field :age, autocomplete: "age",class: "me-4 col-2 mt-4" %>歳
       </div>
       
-      <div class="form-group row">
-      <%= f.label "募集パート", class: "col-3" %>
-      <%= f.text_field :part, autocomplete: "part", placeholder: "ギター経験2年、ベース経験1年",class: "col-2 me-4" %>
+      <div class="form-group">
+      <%= f.label "募集パート", class: "mt-4 col-3 ms-4" %>
+      <%= f.text_field :part, autocomplete: "part", placeholder: "ギター経験2年、ベース経験1年",class: "me-4 col-8 mt-4" %>
       </div>
       
-      <div class="form-group row">
-      <%= f.label "募集条件", class: "col-3" %>
-      <%= f.text_field :condition, autocomplete: "condition", placeholder: "18歳以上、未経験歓迎",class: "col-2 me-4" %>
+      <div class="form-group">
+      <%= f.label "募集条件", class: "mt-4 col-3 ms-4" %>
+      <%= f.text_field :condition, autocomplete: "condition", placeholder: "18歳以上、未経験歓迎",class: "me-4 col-8 mt-4"%>
       </div>
       
-      <div class="form-group row">
-      <%= f.label "活動費用", class: "col-3" %>
-      <%= f.text_field :cost, autocomplete: "cost",class: "col-2 me-4" %>円
+      <div class="form-group">
+      <%= f.label "活動費用", class: "mt-4 col-3 ms-4" %>
+      <%= f.text_field :cost, autocomplete: "cost",class: "me-4 col-2 mt-4"%>円
       </div>
      
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autocomplete: "email", placeholder: "hanako.yanmada@gmail.com", class: "col-3" %>
+        <%= f.label :email, class:"mt-4 col-3 ms-4" %>
+        <%= f.email_field :email, autocomplete: "email", placeholder: "hanako.yanmada@gmail.com", class:"me-4 col-3 mt-4" %>
       </div>
       
-      <div class="form-group row">
-      <%= f.label "練習日", class: "col-3" %>
-      <%= f.text_field :practice_date, autocomplete: "practice_date", placeholder: "毎週日曜日",class: "col-2 me-4" %>
+      <div class="form-group">
+      <%= f.label "練習日", class: "mt-4 col-3 ms-4" %>
+      <%= f.text_field :practice_date, autocomplete: "practice_date", placeholder: "毎週日曜日",class: "me-4 col-2 mt-4" %>
       </div>
       
-      <div class="form-group row">
-      <%= f.label "練習場所", class: "col-3" %>
-      <%= f.text_field :practice_area, autocomplete: "practice_area", placeholder: "〇〇ホール",class: "col-2 me-4" %>
+      <div class="form-group">
+      <%= f.label "練習場所", class: "mt-4 col-3 ms-4" %>
+      <%= f.text_field :practice_area, autocomplete: "practice_area", placeholder: "〇〇ホール",class: "me-4 col-2 mt-4"%>
       </div>
       
-      <div class="form-group row">
-      <%= f.label "演奏先", class: "col-3" %>
-      <%= f.text_field :location, autocomplete: "location", placeholder: "〇〇ホール",class: "col-2 me-4" %>
+      <div class="form-group">
+      <%= f.label "演奏先", class: "mt-4 col-3 ms-4" %>
+      <%= f.text_field :location, autocomplete: "location", placeholder: "〇〇ホール",class: "me-4 col-2 mt-4" %>
       </div>
     
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+      <div class="form-group row mt-3">
+        <div class= "col-3 ms-4 mt-4">
+          <%= f.label "パスワード"%>
+          (<%= @minimum_password_length%> 文字以上)
+        </div>
+            <%= f.password_field :password, autocomplete: "new-password",class: "ms-2 mt-4 col-2" %>
       </div>
-    
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-    
-      <div class="actions">
-        <%= f.submit "Sign up" %>
-      </div>
+
+        <div class="form-group mt-3">
+          <%= f.label "パスワード(確認用)",class:"mt-4 col-3 ms-4" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "me-4 col-2 mt-4" %>
+        </div>
+            <%= f.submit "新規登録", class: "btn btn-success col-2 mt-4 mb-3" %>
     <% end %>
      </div>
   </div>
