@@ -6,6 +6,16 @@
       <%= render "group/shared/error_messages", resource: resource %>
       
       <div class="form-group">
+      <%= f.label "ヘッダー画像", class: "mt-4 col-3 ms-4" %>
+      <%= f.file_field :header_image,class: "col-2 me-4 mt-4" %>
+      </div>
+      
+      <div class="form-group">
+      <%= f.label "プロフィール画像", class: "mt-4 col-3 ms-4" %>
+      <%= f.file_field :profile_image,class: "col-2 me-4 mt-4" %>
+      </div>
+      
+      <div class="form-group">
       <%= f.label "楽団名", class: "mt-4 col-3 ms-4" %>
       <%= f.text_field :name, autocomplete: "name", placeholder: "BandMan",class: "col-2 me-4 mt-4" %>
       </div>
