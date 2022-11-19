@@ -1,35 +1,67 @@
+<div class="container mt-5 mb-5">
+  <div class="card mb-3 w-75 mx-auto">
+    <%=  image_tag @team.get_header_image(500,400)%>
+    <div class="card-body">
+      <h3 class="card-title display-6"><%= @team.name%></h3>
+      <p class="card-text">楽団説明</p>
+      <p class="card-text"><small class="text-muted">更新日:<%= @team.updated_at.to_s(:datetime_jp)%></small></p>
+    </div>
+  </div>
 
-<div class="container">
-  <div class="admin-customer-show pt-5">
-    <h4 class="alert alert-secondary col-4" role="alert"><%= @team.name %></h4>
-    <table class="w-100 admin-customer-show">
-      <tr class="row pb-3">
-        <td class="col-md-2">団体名</td>
-        <td class="col-md-10"><%= @team.name %></td>
-      </tr>
-      <tr class="row pb-3">
-        <td class="col-md-2">エリア</td></td>
-        <td class="col-md-10"><%= @team.area %></td>
-      </tr>
-      <tr class="row pb-3">
-        <td class="col-md-2">ジャンル</td>
-        <td class="col-md-10"><%= @team.genre %></td>
-      </tr>
-      <tr class="row pb-3">
-        <td class="col-md-2">メールアドレス</td>
-        <td class="col-md-10"><%= @team.email %></td>
-      </tr>
-    </table>
+  <table class="table table-bordered">
+    <tr>
+      <td class="table-active border border-dark">ID</td>
+      <td class="border border-dark"><%= @team.id%></td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">ジャンル</td>
+      <td class="border border-dark"><%= @team.genre%></td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">募集パート</td>
+      <td class="border border-dark">text</td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">募集条件</td>
+      <td class="border border-dark">text</td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">活動費用</td>
+      <td class="border border-dark">text</td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">練習日</td>
+      <td class="border border-dark">text</td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">練習場所</td>
+      <td class="border border-dark">text</td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">活動エリア</td>
+      <td class="border border-dark"><%= @team.area%></td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">バンド人数</td>
+      <td class="border border-dark"><%= @team.count%></td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">連絡先</td>
+      <td class="border border-dark"><%= @team.email%></td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">主な演奏先</td>
+      <td class="border border-dark">text</td>
+    </tr>
+  </table>
 
-    <tbody>
-      <tr>
+   <div>
         <% if @team.bookmarked_by?(current_person) %>
-          <td><%= link_to "ブックマークを外す", people_team_bookmarks_path(@team), method: :delete %></td>
+          <%= link_to "ブックマークを外す", people_team_bookmarks_path(@team), method: :delete %>
         <% else %>
-          <td><%= link_to "ブックマーク", people_team_bookmarks_path(@team), method: :post %></td>
+          <%= link_to "ブックマーク", people_team_bookmarks_path(@team), method: :post %>
         <% end %>
-      </tr>
-    </tbody>
+    </div>
 
     <div>
       <% if @team.entried_by?(current_person) %>
@@ -39,6 +71,4 @@
       <% end %>
     </div>
 
-
-  </div>
 </div>

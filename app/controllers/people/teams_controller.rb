@@ -17,7 +17,7 @@ class People::TeamsController < ApplicationController
   end
   
   def bookmarks
-    @bookmarks = Bookmark.where(team_id: current_person.id)
+    @bookmarks = Bookmark.where(person_id: current_person.id)
   end
   
   def entries
@@ -27,7 +27,7 @@ class People::TeamsController < ApplicationController
   
   private
   def team_params
-    params.require(:team).permit(:area)
+    params.require(:team).permit(:area,:header_image,:profile_image)
   end
   
   

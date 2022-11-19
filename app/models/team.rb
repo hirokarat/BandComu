@@ -1,6 +1,8 @@
 class Team < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_one_attached :header_image
+  has_one_attached :profile_image
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -8,6 +10,14 @@ class Team < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :entries, dependent: :destroy
 
+  def get_header_image(width, height)
+      unless header_image.attached?
+        file_path = Rails.root.join('app/assets/images/no_image.png')
+        header_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+      end
+    header_image.variant(resize_to_limit: [width, height]).processed
+  end
+  
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |team|
       team.password = SecureRandom.urlsafe_base64
@@ -21,8 +31,8 @@ class Team < ApplicationRecord
     end
   end
 
-  def bookmarked_by?(team)
-    bookmarks.where(team_id: team).exists?
+  def bookmarked_by?(person)
+    bookmarks.where(person_id: person).exists?
   end
 
   def entried_by?(team)
