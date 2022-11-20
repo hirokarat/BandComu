@@ -59,7 +59,6 @@ namespace :people do
       collection do
       get 'search'
       end
-      resource :bookmarks, only: [:create, :destroy]
     end
     resources:journals, only:[:new,:create,:index,:show,:edit,:update,:destroy] do
       collection do

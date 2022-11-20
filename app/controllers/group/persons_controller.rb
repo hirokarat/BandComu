@@ -4,7 +4,7 @@ class Group::PersonsController < ApplicationController
   end
   
   def index
-    @entries = Entry.where(person_id: current_team.id)
+    @entries = Entry.where(team_id: current_team.id)
   end
   
   private

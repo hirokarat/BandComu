@@ -35,8 +35,8 @@ class Team < ApplicationRecord
     bookmarks.where(person_id: person).exists?
   end
 
-  def entried_by?(team)
-     entries.where(team_id: team).exists?
+  def entried_by?(person)
+     entries.where(person_id: person).exists?
   end
 
   enum genre:{"---":0,
