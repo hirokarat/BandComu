@@ -21,7 +21,7 @@ class People::TeamsController < ApplicationController
   end
   
   def entries
-    @entries = Entry.where(team_id: current_person.id)
+    @entries = Entry.where(person_id: current_person.id)
   end
   
   
