@@ -1,7 +1,7 @@
 <div class="container">
   <div class="admin-customer pt-5">
     <h4 class="alert alert-secondary  col-2" role="alert">会員一覧</h4>
-      
+
       <h1>ユーザー検索</h1>
        <div>
         <%= form_tag(group_teams_path, method: "get") do %>
@@ -12,8 +12,7 @@
           <%= submit_tag "検索" %>
        <% end %>
         </div>
-    
-    
+
     <table class="table">
       <tr class="table-active">
         <th>会員ID</th>
@@ -24,7 +23,7 @@
       <% @teams.each do |team| %>
         <tr>
           <td>
-            <%= team.id %>
+            <%= image_tag team.get_profile_image(50,50), class:"rounded-circle" %>
           </td>
           <td>
             <%= team.genre %>
@@ -39,8 +38,8 @@
       <% end %>
     </table>
     <div class="pagenate">
-      
+
     </div>
-    
+
   </div>
 </div>

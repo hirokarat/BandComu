@@ -2,22 +2,12 @@
   "name": "band-comu",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@popperjs/core": "^2.11.6",
-=======
-    "@fortawesome/fontawesome-free": "5.15.4",
->>>>>>> refs/remotes/origin/main
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
-<<<<<<< HEAD
     "bootstrap": "^5.2.2",
-=======
-    "bootstrap": "4.5",
-    "jquery": "^3.6.1",
-    "popper.js": "^1.16.1",
->>>>>>> refs/remotes/origin/main
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"

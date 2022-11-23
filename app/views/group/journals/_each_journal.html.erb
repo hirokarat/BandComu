@@ -1,0 +1,16 @@
+<% @journals.each do |journal| %>
+  <div class="card mb-3 w-50 mx-auto">
+    <%= link_to group_journal_path(journal.id) do %>
+      <%= image_tag journal.get_activity_image(900,900),class:"card-img-top h-100"%>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%= image_tag journal.team.get_profile_image(50,50), class:"rounded-circle" %>:<%= journal.team.name%></h5>
+      <p class="card-text"><%=journal.journal %></p>
+      <% journal.tags.each do |tag| %>
+       <i class="fa-solid fa-tag"></i><%= tag.name %>
+       <% end %>
+       <p class="card-text"><small class="text-muted"><%= journal.created_at.to_s(:datetime_jp)%></small></p>
+      <p><%= link_to 'このユーザーの詳細へ', group_team_path(journal.team_id)%></p>
+    </div>
+  </div>
+  <% end %>

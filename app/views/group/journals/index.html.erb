@@ -1,24 +1,10 @@
-<h1>投稿一覧</h1>
-
-<div>
+<div class="container mt-4">
+  <h2><mark>活動日誌一覧</mark></h2>
   タグで探す
   <% @tag_lists.each do |list| %>
-  <%= link_to list.name, group_journals_path(tag_id: list.id), class: 'tag_list'%>
-  <%="(#{list.journals.count})" %>
+    <%= link_to list.name, group_journals_path(tag_id: list.id), class: 'tag_list'%>
+    <%="(#{list.journals.count})" %>
   <% end %>
+  
+  <%= render 'each_journal'%>
 </div>
-<% @journals.each do |journal| %>
-  <i class="fas fa-tag"><%= journal.tags.map(&:name).join(', ') %></i>
-
-<div class="card mb-3">
-  <%= link_to group_journal_path(journal.id) do %>
-    <%= image_tag journal.get_activity_image(100,100)%>
-  <% end %>
-  <div class="card-body">
-    <h5 class="card-title">投稿者:<%= journal.team.name%></h5>
-    <p class="card-text"><%=journal.journal %></p>
-    <p class="card-text"><small class="text-muted"><%= journal.created_at%></small></p>
-    <p><%= link_to 'このユーザーの詳細へ', group_team_path(journal.team_id)%></p>
-  </div>
-</div>
-<% end %>

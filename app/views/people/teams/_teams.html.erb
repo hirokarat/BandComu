@@ -1,5 +1,8 @@
 <tr>
   <td>
+    <%= image_tag team.get_profile_image(50,50), class:"rounded-circle" %>
+  </td>
+  <td>
     <%= link_to team.name, people_team_path(team), class: "text-dark" %>
   </td>
   <td>
