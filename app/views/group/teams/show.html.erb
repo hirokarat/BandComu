@@ -1,26 +1,61 @@
-<div class="container-xxl mt-5 mx-5">
-
-  <h2><mark>マイページ</mark></h2>
-
-  <div class="customer-information mt-5">
-    <div class="row" style="margin-left: 0; margin-right: 0;">
-      <h4 class="d-flex align-items-center justify-content-center" style="margin-bottom: 0;"><strong>登録情報</strong></h4>
-      <%= link_to "編集する", edit_group_team_path, class: "btn btn-success col-1 ml-3" %>
+<div class="mt-5 mb-5">
+    <%= image_tag @team.get_header_image(500,500)%>
+  <div class="card mb-3 h-75 mx-auto ">
+    <div class="card-body">
+      <h3 class="card-title display-6"><%= @team.name%></h3>
+      <p class="card-text">楽団説明</p>
+      <p class="card-text"><small class="text-muted">更新日:<%= @team.updated_at.to_s(:datetime_jp)%></small></p>
     </div>
-    <table class="col-6 table table-bordered mt-3 mb-5">
-      <tr>
-        <td class="table-active border border-dark">名前</td>
-        <td class="border border-dark"><%= @team.name%></td>
-      </tr>
-      <tr>
-        <td class="table-active border border-dark">人数</td>
-        <td class="border border-dark"><%= @team.count%>人</td>
-      </tr>
-      <tr>
-        <td class="table-active border border-dark">メールアドレス</td>
-        <td class="border border-dark"><%= @team.email%></td>
-      </tr>
-    </table>
-
   </div>
+</div>
+
+<div class="container">
+<%= image_tag @team.get_profile_image(100,100), class:"rounded-circle" %>
+  <table class="table table-bordered mt-4">
+    <tr>
+      <td class="table-active border border-dark">ID</td>
+      <td class="border border-dark"><%= @team.id%></td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">ジャンル</td>
+      <td class="border border-dark"><%= @team.genre%></td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">募集パート</td>
+      <td class="border border-dark">text</td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">募集条件</td>
+      <td class="border border-dark">text</td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">活動費用</td>
+      <td class="border border-dark">text</td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">練習日</td>
+      <td class="border border-dark">text</td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">練習場所</td>
+      <td class="border border-dark">text</td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">活動エリア</td>
+      <td class="border border-dark"><%= @team.area%></td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">バンド人数</td>
+      <td class="border border-dark"><%= @team.count%></td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">連絡先</td>
+      <td class="border border-dark"><%= @team.email%></td>
+    </tr>
+    <tr>
+      <td class="table-active border border-dark">主な演奏先</td>
+      <td class="border border-dark">text</td>
+    </tr>
+  </table>
+  <%= link_to "編集する", edit_group_team_path, class: "btn btn-success col-1 ml-3" %>
 </div>

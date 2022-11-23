@@ -1,5 +1,5 @@
 class Group::TeamsController < ApplicationController
-   
+
   def index
     @teams = Team.all
     if params[:area].present?
@@ -10,7 +10,7 @@ class Group::TeamsController < ApplicationController
       @teams=@teams.get_by_area_genre params[:area][:genre]
     end
   end
-  
+
   def show
     @team = Team.find(params[:id])
   end
@@ -28,13 +28,27 @@ class Group::TeamsController < ApplicationController
       render :edit
     end
   end
-  
-  
+
+
   private
 
   def team_params
-    params.require(:team).permit(:name,:email,:area,:genre,:count)
+    params.require(:team).permit(
+      :name,
+      :email,
+      :area,
+      :genre,
+      :count,
+      :profile_image,
+      :age,
+      :part,
+      :condition,
+      :cost,
+      :practice_date,
+      :practice_area,
+      :location,
+      :header_image)
   end
-  
-  
+
+
 end

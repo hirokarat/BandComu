@@ -7,24 +7,11 @@
   <%= link_to list.name, group_journals_path(tag_id: list.id), class: 'tag_list'%>
   <%="(#{list.journals.count})" %>
   <% end %>
-
 </div>
 
+<%= render 'each_journal'%>
 
-<% @journals.each do |journal| %>
-<!--投稿はカードで囲む-->
-<div class="card">
-  <div class="card-body">
-    <h6 class="card-title">
-      <%= journal.team.name %>
-      <%= image_tag journal.get_activity_image(100,100)%>
-      <%=link_to group_journal_path(journal.id) do %>
-      <%= journal.journal.truncate(25) %>
-      <% end %>
-    </h6>
-  </div>
-</div>
-<% end %>
+
 
 <div class="pagination pagination-sm justify-content-center">
        <%= paginate @journals %></div>
