@@ -1,7 +1,7 @@
 <div class="container row mx-auto mt-4">
   <div class="signin text-center bg-light py-4 px-3 col-md-6 mx-auto rounded">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_with model: @person, url: person_session_path do |f| %>
  <h1 class="h3 mb-3 fw-normal">個人ログイン</h1>
   <div class="field mb-3">
     <%= f.label :email %><br />

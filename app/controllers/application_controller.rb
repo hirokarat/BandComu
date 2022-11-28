@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(Admin)
-      admin_root_path
+      top_path
     else
       top_path
     end
@@ -34,8 +34,6 @@ class ApplicationController < ActionController::Base
     @search = Team.ransack(@query)
     @search_teams = @search.result.order(created_at: :desc).page(params[:page])
   end
-  
-  
   
 
   protected

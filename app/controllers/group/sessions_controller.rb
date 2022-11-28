@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class Group::SessionsController < Devise::SessionsController
-  def new_guest_team
+  def new_guest
     team = Team.guest
     sign_in team   # ユーザーをログインさせる
-    redirect_to group_my_page_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to top_path, notice: 'ゲストユーザーとしてログインしました。'
   end
   
   # before_action :configure_sign_in_params, only: [:create]

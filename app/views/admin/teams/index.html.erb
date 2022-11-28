@@ -25,11 +25,11 @@
       </tr>
         <% if params[:q].present? %>
           <% @search_teams.each do |team| %>
-            <%= render partial: 'people/teams/teams', locals: {team: team}%>
+            <%= render partial: 'admin/teams/teams', locals: {team: team}%>
           <% end %>
         <% else %>
           <% @teams.each do |team| %>
-            <%= render partial: 'people/teams/teams', locals: {team: team}%>
+            <%= render partial: 'admin/teams/teams', locals: {team: team}%>
           <% end %>  
         <% end %>
     </table>
