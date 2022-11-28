@@ -1,13 +1,10 @@
 <div class="container">
   <div class="admin-customer pt-5">
-    <h4 class="alert alert-secondary  col-2" role="alert">会員一覧</h4>
-   
+    <h2><mark>団体一覧</mark></h2>
       <% if params[:q].present?%>
-      <h1><%= params[:q]%>の検索結果</h1>
+      <h1 class="mt-4"><mark><%= params[:q]%></mark>の検索結果</h1>
       <%end%>
-      
-      <h1>ユーザー検索</h1>
-       <div>
+       <div class="mt-4">
         <%= form_tag(people_teams_path, method: "get") do %>
           <%= label_tag :area, "活動エリア" %>
           <%= select_tag :area, options_for_select(Team.areas), include_blank: true, value: params[:area]%>
@@ -20,9 +17,10 @@
 
     <table class="table">
       <tr class="table-active">
+        <th>アイコン</th>
         <th>団体名</th>
-        <th>ジャンル</th>
         <th>活動エリア</th>
+        <th>ジャンル</th>
         <th>メールアドレス</th>
       </tr>
         <% if params[:q].present? %>

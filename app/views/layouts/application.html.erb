@@ -78,7 +78,7 @@
                     <%= link_to "ブックマーク一覧", bookmarks_people_teams_path, class: 'nav-link' %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "応募", entries_people_teams_path, class: 'nav-link' %>
+                    <%= link_to "応募一覧", entries_people_teams_path, class: 'nav-link' %>
                   </li>
                   <li class="nav-item">
                     <%= link_to "ログアウト", destroy_person_session_path, method: :delete, class: 'nav-link' %>
@@ -97,7 +97,7 @@
                     </ul>
                   </li>
                 </ul>
-                <%= form_with url: search_people_teams_path, method: :get,class: "d-flex mt-3 mt-lg-0", local: true do |f| %>  <!--検索フォーム-->
+                <%= form_with url: people_teams_path, method: :get,class: "d-flex mt-3 mt-lg-0", local: true do |f| %>  <!--検索フォーム-->
                   <%= f.text_field :q, placeholder: '名前を入力...',class: "form-control me-2" %>
                   <%= f.submit ("Search"),class: "btn btn-outline-success" %>
                 <% end %>
@@ -125,7 +125,7 @@
                     </li>
                   </ul>
                     <%= form_with url: people_teams_path, method: :get,class: "d-flex mt-3 mt-lg-0", local: true do |f| %> <!--検索フォーム-->
-                      <%= f.text_field :name_cont, placeholder: '名前を入力...',class: "form-control me-2" %>
+                      <%= f.text_field :q, placeholder: '名前を入力...',class: "form-control me-2" %>
                       <%= f.submit ("Search"),class: "btn btn-outline-success" %>
                     <% end %>
 
@@ -164,7 +164,7 @@
                     </li>
                   </ul>
                     <%= form_with url: people_teams_path, method: :get,class: "d-flex mt-3 mt-lg-0", local: true do |f| %> <!--検索フォーム-->
-                      <%= f.text_field :name_cont, placeholder: '名前を入力...',class: "form-control me-2" %>
+                      <%= f.text_field :q, placeholder: '名前を入力...',class: "form-control me-2" %>
                       <%= f.submit ("Search"),class: "btn btn-outline-success" %>
                     <% end %>
                 <% end %>

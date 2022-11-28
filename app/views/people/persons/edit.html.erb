@@ -1,35 +1,40 @@
-<div class="container-xxl mt-5 mx-5">
-
-  <h2><mark>会員情報編集</mark></h2>
-
-  <div class="d-flex justify-content-center mt-5" style="">
-    <%= form_with model: @person,url: people_person_path(@person), method: :PATCH, class: "col-9", local: true do |f| %>
-
-    <div>
-      <%= f.label "名前", class: "col-4" %>
-      <%= f.text_field :last_name, autocomplete: "last_name", class: "col-3 me-4" %>
-      <%= f.text_field :first_name, autocomplete: "first_name", class: "col-3 ms-4" %>
+<div class="container mt-4">
+  <div class="form-horizontal">
+    <h2><mark>会員情報編集</mark></h2>
+    <div class="text-center bg-light">
+      <%= form_with model: @person,url: people_person_path(@person), method: :PATCH, class: "col-9", local: true do |f| %>
+          <div class="form-group mt-4 row ">
+            <%= f.label "名前", class: "mt-4 col-3" %>
+            <%= f.text_field :last_name, autocomplete: "last_name", placeholder: "(姓) 山田",class: "mt-4 col-2 me-4 ms-3" %>
+            <%= f.text_field :first_name, autocomplete: "first_name", placeholder: "(名) 花子",class: "mt-4 col-2 ms-4" %>
+          </div>
+  
+          <div class="form-group mt-3 row">
+            <%= f.label "フリガナ", class: "col-3" %>
+            <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", placeholder: "(セイ) ヤマダ",class: "col-2 me-4 ms-3"%>
+            <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", placeholder: "(メイ) ハナコ" ,class: "col-2 ms-4"%>
+          </div>
+  
+          <div class="form-group mt-3 row">
+            <%= f.label "e-mail",class: "col-3" %>
+            <%= f.email_field :email, autocomplete: "email",class: "col-3 ms-3" %>
+          </div>
+  
+          <div class="form-group mt-3 row">
+            <%= f.label "電話番号(ハイフンなし)",class: "col-3"%>
+            <%= f.text_field :telephone_number, autocomplete: "telephone_number", placeholder: "0312345678",class: "col-2 ms-3" %>
+          </div>
+  
+          <div class="form-group mt-3 row">
+            <%= f.label "生年月日",class: "col-3 mb-3"%>
+            <%= f.date_select :birthday, {start_year: 1950, end_year: 2016,
+            include_blank: true, use_two_digit_numbers: true,use_month_numbers: true,date_separator: '/'},
+            {class: "input-tab birthday-select col-1 me-3 ms-3 mb-3"}%>
+          </div>
     </div>
-
-    <div class="mt-3">
-      <%= f.label "フリガナ", class: "col-4" %>
-      <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", class: "col-3 me-4" %>
-      <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", class: "col-3 ms-4" %>
+    <div class="text-center">
+        <%= f.submit "編集内容を保存", class: "btn btn-success col-2 mt-4 mb-3" %>
+      <% end %>
     </div>
-
-    <div class="mt-3">
-      <%= f.label "電話番号", class: "col-4" %>
-      <%= f.text_field :telephone_number, autocomplete: "telephone_number", class: "col-4" %>
-    </div>
-
-    <div class="mt-3">
-      <%= f.label "メールアドレス", class: "col-4" %>
-      <%= f.email_field :email, autocomplete: "email", class: "col-7" %>
-    </div>
-
-    <div class="actions mt-5 mx-auto" style="width:500px;">
-        <%= f.submit "編集内容を保存", class: "btn btn-success mr-5" %>
-    </div>
-    <% end %>
   </div>
 </div>

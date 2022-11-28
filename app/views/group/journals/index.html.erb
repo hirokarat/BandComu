@@ -2,7 +2,7 @@
   <h2><mark>活動日誌一覧</mark></h2>
   タグで探す
   <% @tag_lists.each do |list| %>
-    <%= link_to list.name, group_journals_path(tag_id: list.id), class: 'tag_list'%>
+    <%= link_to list.name, people_journals_path(tag_id: list.id), class: 'tag_list'%>
     <%="(#{list.journals.count})" %>
   <% end %>
   

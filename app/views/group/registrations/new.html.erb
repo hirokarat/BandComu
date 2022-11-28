@@ -4,77 +4,77 @@
     <div class="bg-light">
       <%= form_with model: @team, url: team_registration_path, local: true  do |f| %>
       <%= render "group/shared/error_messages", resource: resource %>
-      
+
       <div class="form-group">
       <%= f.label "ヘッダー画像", class: "mt-4 col-3 ms-4" %>
-      <%= f.file_field :header_image,class: "col-2 me-4 mt-4" %>
+      <%= f.file_field :header_image,class: "col-4 me-4 mt-4" %>
       </div>
-      
+
       <div class="form-group">
       <%= f.label "プロフィール画像", class: "mt-4 col-3 ms-4" %>
-      <%= f.file_field :profile_image,class: "col-2 me-4 mt-4" %>
+      <%= f.file_field :profile_image,class: "col-4 me-4 mt-4" %>
       </div>
-      
+
       <div class="form-group">
       <%= f.label "楽団名", class: "mt-4 col-3 ms-4" %>
       <%= f.text_field :name, autocomplete: "name", placeholder: "BandMan",class: "col-2 me-4 mt-4" %>
       </div>
-      
+
       <div class="form-group">
       <%= f.label "バンドの人数", class: "mt-4 col-3 ms-4" %>
       <%= f.select :count, *[1..70] ,class: "me-4 col-2 mt-4"%>
       </div>
-      
+
       <div class="form-group">
       <%= f.label "ジャンル", class: "mt-4 col-3 ms-4" %>
       <%= f.select :genre, Team.genres.keys, {} ,class:"me-4 col-2 mt-4"%>
       </div>
-      
+
       <div class="form-group">
       <%= f.label "活動エリア", class: "mt-4 col-3 ms-4" %>
       <%= f.select :area, Team.areas.keys, {} ,class:"me-4 col-2 mt-4"%>
       </div>
-      
+
       <div class="form-group">
       <%= f.label "楽団の平均年齢", class: "mt-4 col-3 ms-4" %>
       <%= f.text_field :age, autocomplete: "age",class: "me-4 col-2 mt-4" %>歳
       </div>
-      
+
       <div class="form-group">
       <%= f.label "募集パート", class: "mt-4 col-3 ms-4" %>
       <%= f.text_field :part, autocomplete: "part", placeholder: "ギター経験2年、ベース経験1年",class: "me-4 col-8 mt-4" %>
       </div>
-      
+
       <div class="form-group">
       <%= f.label "募集条件", class: "mt-4 col-3 ms-4" %>
       <%= f.text_field :condition, autocomplete: "condition", placeholder: "18歳以上、未経験歓迎",class: "me-4 col-8 mt-4"%>
       </div>
-      
+
       <div class="form-group">
-      <%= f.label "活動費用", class: "mt-4 col-3 ms-4" %>
-      <%= f.text_field :cost, autocomplete: "cost",class: "me-4 col-2 mt-4"%>円
+      <%= f.label "活動費用（毎月）", class: "mt-4 col-3 ms-4" %>
+      <%= f.text_field :cost, autocomplete: "cost",placeholder: "1000",class: "me-4 mt-4"%>円
       </div>
-     
+
       <div class="field">
         <%= f.label :email, class:"mt-4 col-3 ms-4" %>
         <%= f.email_field :email, autocomplete: "email", placeholder: "hanako.yanmada@gmail.com", class:"me-4 col-3 mt-4" %>
       </div>
-      
+
       <div class="form-group">
       <%= f.label "練習日", class: "mt-4 col-3 ms-4" %>
       <%= f.text_field :practice_date, autocomplete: "practice_date", placeholder: "毎週日曜日",class: "me-4 col-2 mt-4" %>
       </div>
-      
+
       <div class="form-group">
       <%= f.label "練習場所", class: "mt-4 col-3 ms-4" %>
       <%= f.text_field :practice_area, autocomplete: "practice_area", placeholder: "〇〇ホール",class: "me-4 col-2 mt-4"%>
       </div>
-      
+
       <div class="form-group">
-      <%= f.label "演奏先", class: "mt-4 col-3 ms-4" %>
+      <%= f.label "主な演奏先", class: "mt-4 col-3 ms-4" %>
       <%= f.text_field :location, autocomplete: "location", placeholder: "〇〇ホール",class: "me-4 col-2 mt-4" %>
       </div>
-    
+
       <div class="form-group row mt-3">
         <div class= "col-3 ms-4 mt-4">
           <%= f.label "パスワード"%>
@@ -84,12 +84,15 @@
       </div>
 
         <div class="form-group mt-3">
-          <%= f.label "パスワード(確認用)",class:"mt-4 col-3 ms-4" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "me-4 col-2 mt-4" %>
+          <%= f.label "パスワード(確認用)",class:"mt-4 col-3 ms-4 mb-4" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "me-4 col-2 mt-4 mb-4" %>
         </div>
-        
-        <%= f.submit "新規登録", class: "btn btn-success col-2 mt-4 mb-3" %>
-    <% end %>
      </div>
+     <%= f.submit "新規登録", class: "btn btn-success col-2 mt-4 mb-3" %>
+    <% end %>
+  </div>
+  <div class="mt-3 mb-5">
+    <h3>既に登録済みの方</h3>
+    <%= link_to "こちら", new_team_session_path %>　からログインしてください。
   </div>
 </div>

@@ -1,21 +1,14 @@
-<div class="mt-5 mb-5">
+<div class="container mt-5 mb-5">
+  <div class="card mb-3 mx-auto">
     <%= image_tag @team.get_header_image(500,500)%>
-  <div class="card mb-3 h-75 mx-auto ">
-    <div class="card-body">
-      <h3 class="card-title display-6"><%= @team.name%></h3>
-      <p class="card-text">楽団説明</p>
-      <p class="card-text"><small class="text-muted">更新日:<%= @team.updated_at.to_s(:datetime_jp)%></small></p>
-    </div>
+      <div class="card-body">
+        <h3 class="card-title display-6"><%= @team.name%></h3>
+        <p class="card-text">楽団説明</p>
+        <p class="card-text"><small class="text-muted">更新日:<%= @team.updated_at.to_s(:datetime_jp)%></small></p>
+      </div>
   </div>
-</div>
-
-<div class="container">
 <%= image_tag @team.get_profile_image(100,100), class:"rounded-circle" %>
   <table class="table table-bordered mt-4">
-    <tr>
-      <td class="table-active border border-dark">ID</td>
-      <td class="border border-dark"><%= @team.id%></td>
-    </tr>
     <tr>
       <td class="table-active border border-dark">ジャンル</td>
       <td class="border border-dark"><%= @team.genre%></td>
@@ -57,5 +50,5 @@
       <td class="border border-dark">text</td>
     </tr>
   </table>
-  <%= link_to "編集する", edit_group_team_path, class: "btn btn-success col-1 ml-3" %>
+  <%= link_to "編集する", edit_group_team_path, class: "btn btn-success col-1 ml-3 mb-4" %>
 </div>

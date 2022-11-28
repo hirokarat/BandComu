@@ -1,27 +1,7 @@
 <div class="container mt-4">
   <h2><mark>活動日誌一覧</mark></h2>
-  タグで探す
-  <% @tag_lists.each do |list| %>
-    <%= link_to list.name, group_journals_path(tag_id: list.id), class: 'tag_list'%>
-    <%="(#{list.journals.count})" %>
-  <% end %>
   
-  <% @journals.each do |journal| %>
-  <div class="card mb-3 w-50">
-    <%= link_to group_journal_path(journal.id) do %>
-      <%= image_tag journal.activity_image,class:"card-img-top h-100"%>
-    <% end %>
-    <div class="card-body">
-      <h5 class="card-title">投稿者:<%= journal.team.name%></h5>
-      <p class="card-text"><%=journal.journal %></p>
-      <p class="card-text"><small class="text-muted"><%= journal.created_at.to_s(:datetime_jp)%></small></p>
-      <% journal.tags.each do |tag| %>
-       <%= tag.name %><%="(#{tag.journals.count})" %>
-       <% end %>
-      <p><%= link_to 'このユーザーの詳細へ', people_team_path(journal.team_id)%></p>
-    </div>
-  </div>
-  <% end %>
+  <%= render 'each_journal'%>
 </div>
 
 

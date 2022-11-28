@@ -1,28 +1,17 @@
-<div class="cover-user-show">
-  <div class="container">
-    <div class="row justify-content-center">
-      <% if person_signed_in? && @person == current_person %>
-      <h1 class="font-weight-normal mt-5 mb-5">マイページ</h1>
-      <% else %>
-      <h1 class="font-weight-normal mt-5 mb-5"><%= @person.first_name %>さんのページ</h1>
-      <% end %>
-    </div>
-    
-    <div class="row" style="margin-left: 0; margin-right: 0;">
-      <h4 class="d-flex align-items-center justify-content-center" style="margin-bottom: 0;"><strong>登録情報</strong></h4>
-      <%= link_to "編集する", edit_people_person_path, class: "btn btn-success col-1 ml-3" %>
-    </div>
-    
-     <table class="col-6 table table-bordered mt-3 mb-5">
+<div class="container">
+  <div class="pt-5">
+    <h2><mark><%= @person.full_name %>さんの詳細</mark></h2>
+    <%= image_tag @person.get_profile_image(100,100), class:"rounded-circle" %>
+    <table class="table table-bordered mt-4 row">
       <tr>
-        <td class="table-active border border-dark">氏名</td>
-        <td class="border border-dark"><%= @person.last_name %> <%= @person.first_name %></td>
+        <td class="table-active border border-dark col-2">氏名</td>
+        <td class="border border-dark col-10"><%= @person.full_name %></td>
       </tr>
       <tr>
-        <td class="table-active border border-dark">カナ</td>
-        <td class="border border-dark"><%= @person.last_name_kana %> <%= @person.first_name_kana %></td>
+        <td class="table-active border border-dark">フリガナ</td>
+        <td class="border border-dark"><%= @person.full_name_kana%></td>
       </tr>
-      <tr>
+       <tr>
         <td class="table-active border border-dark">電話番号</td>
         <td class="border border-dark"><%= @person.telephone_number %></td>
       </tr>
@@ -31,9 +20,22 @@
         <td class="border border-dark"><%= @person.age(@person.birthday) %></td>
       </tr>
       <tr>
+        <td class="table-active border border-dark">得意な楽器</td>
+        <td class="border border-dark"><%= @person.favorite_instrument %></td>
+      </tr>
+      <tr>
+        <td class="table-active border border-dark">楽器の有無</td>
+        <td class="border border-dark"><%= @person.instrument_existence %></td>
+      </tr>
+      <tr>
+        <td class="table-active border border-dark">楽器の有無</td>
+        <td class="border border-dark"><%= @person.self_introduction %></td>
+      </tr>
+       <tr>
         <td class="table-active border border-dark">メールアドレス</td>
         <td class="border border-dark"><%= @person.email %></td>
       </tr>
     </table>
   </div>
+   <%= link_to "編集する", edit_people_person_path, class: "btn btn-success col-1 ml-3" %>
 </div>
