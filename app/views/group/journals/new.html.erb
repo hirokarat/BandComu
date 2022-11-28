@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container mt-4">
   <div class="form-horizontal">
-    <h1>新規投稿</h1>
+    <h2><mark>活動日誌投稿</mark></h2>
     <div class="bg-light">
       <%= form_with model: @journal,url:group_journals_path, method: :post,local: true do |f| %>
         
@@ -22,7 +22,7 @@
         <%= f.submit "投稿", class: "btn btn-success col-2 mt-4 mb-3" %>
         <% end %>
     </div>
-      <button type="button" class="btn btn-primary">
+      <button type="button" class="btn btn-primary mt-4">
         <%= link_to "活動日誌一覧へ", group_journals_path, class:"text-white"%>
       </button>
   </div>

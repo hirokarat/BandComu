@@ -36,7 +36,7 @@ namespace :admin do
   end
 
 namespace :people do
-    resources:people, only: [:show,:edit,:update]
+    resources:persons, only: [:show,:edit,:update]
     resources:teams, only: [:index,:show] do
       resource :bookmarks, only: [:create, :destroy]
       resource :entries, only: [:create, :destroy]

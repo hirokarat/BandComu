@@ -1,27 +1,39 @@
 <div class="container">
-  <div class="admin-customer-show pt-5">
-    <h4 class="alert alert-secondary col-4" role="alert"><%= @person.full_name %>さんの会員詳細</h4>
-    <table class="w-100 admin-customer-show">
-      <tr class="row pb-3">
-        <td class="col-md-2">会員ID</td>
-        <td class="col-md-10"><%= @person.id %></td>
+  <div class="pt-5">
+    <h2><mark><%= @person.full_name %>さんの詳細</mark></h2>
+    <%= image_tag @person.get_profile_image(100,100), class:"rounded-circle" %>
+    <table class="table table-bordered mt-4 row">
+      <tr>
+        <td class="table-active border border-dark col-2">氏名</td>
+        <td class="border border-dark col-10"><%= @person.full_name %></td>
       </tr>
-      <tr class="row pb-3">
-        <td class="col-md-2">氏名</td>
-        <td class="col-md-10"><%= @person.full_name %></td>
+      <tr>
+        <td class="table-active border border-dark">フリガナ</td>
+        <td class="border border-dark"><%= @person.full_name_kana%></td>
       </tr>
-      <tr class="row pb-3">
-        <td class="col-md-2">フリガナ</td>
-        <td class="col-md-10"><%= @person.full_name_kana %></td>
+       <tr>
+        <td class="table-active border border-dark">電話番号</td>
+        <td class="border border-dark"><%= @person.telephone_number %></td>
       </tr>
-      <tr class="row pb-3">
-        <td class="col-md-2">電話番号</td>
-        <td class="col-md-10"><%= @person.telephone_number %></td>
+      <tr>
+        <td class="table-active border border-dark">年齢</td>
+        <td class="border border-dark"><%= @person.age(@person.birthday) %></td>
       </tr>
-      <tr class="row pb-3">
-        <td class="col-md-2">メールアドレス</td>
-        <td class="col-md-10"><%= @person.email %></td>
+      <tr>
+        <td class="table-active border border-dark">得意な楽器</td>
+        <td class="border border-dark"><%= @person.favorite_instrument %></td>
       </tr>
-    </table>
+      <tr>
+        <td class="table-active border border-dark">楽器の有無</td>
+        <td class="border border-dark"><%= @person.instrument_existence %></td>
+      </tr>
+      <tr>
+        <td class="table-active border border-dark">楽器の有無</td>
+        <td class="border border-dark"><%= @person.self_introduction %></td>
+      </tr>
+       <tr>
+        <td class="table-active border border-dark">メールアドレス</td>
+        <td class="border border-dark"><%= @person.email %></td>
+      </tr>
   </div>
 </div>
