@@ -9,8 +9,8 @@ class Person < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :entries, dependent: :destroy
          
-  def self.guest_person
-    find_or_create_by!(email: 'aaa@aaa.com') do |person|
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |person|
       person.password = SecureRandom.urlsafe_base64
       person.password_confirmation = person.password
       person.last_name = '音楽'

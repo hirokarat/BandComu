@@ -7,7 +7,7 @@ devise_for :teams, skip:[:passwords],controllers: {
   sessions: 'group/sessions'
 }
   devise_scope :team do
-    post 'teams/guest_sign_in', to: 'teams/sessions#new_guest'
+    post 'group/guest_sign_in', to: 'group/sessions#new_guest'
   end
 
 
@@ -30,9 +30,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 namespace :admin do
     root to:'homes#top'
-    resources:people, only: [:index,:show,:destroy,:unsubscribe,:withdraw]
+    resources:persons, only: [:index,:show,:destroy,:unsubscribe,:withdraw]
     resources:teams, only:[:index,:show,:destroy,:unsubscribe,:withdraw]
-    resources:journals,only: [:index]
+    resources:journals,only: [:index,:show,:destroy,:unsubscribe,:withdraw]
   end
 
 namespace :people do

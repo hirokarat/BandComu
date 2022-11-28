@@ -26,11 +26,27 @@
           </div>
   
           <div class="form-group mt-3 row">
-            <%= f.label "生年月日",class: "col-3 mb-3"%>
+            <%= f.label "生年月日",class: "col-3"%>
             <%= f.date_select :birthday, {start_year: 1950, end_year: 2016,
             include_blank: true, use_two_digit_numbers: true,use_month_numbers: true,date_separator: '/'},
             {class: "input-tab birthday-select col-1 me-3 ms-3 mb-3"}%>
           </div>
+          
+          <div class="form-group mt-3 row ">
+            <%= f.label "得意な楽器", class: "col-3" %>
+            <%= f.text_field :favorite_instrument, autocomplete: "favorite_instrument", placeholder: "ギター3年",class: "col-8 me-4 ms-3" %>
+          </div>
+          
+          <div class="form-group mt-3 row ">
+            <%= f.label "楽器の有無", class: "col-3" %>
+            <%= f.text_field :instrument_existence, autocomplete: "instrument_existence", placeholder: "ギター所持",class: "col-8 me-4 ms-3" %>
+          </div>
+          
+          <div class="form-group mt-3 row mb-4">
+            <%= f.label "自己紹介", class: "col-3 mb-4" %>
+            <%= f.text_area :self_introduction, autocomplete: "self_introduction", placeholder: "自己紹介を書こう",class: "col-7 me-4 ms-3 mb-4" %>
+          </div>
+          
     </div>
     <div class="text-center">
         <%= f.submit "編集内容を保存", class: "btn btn-success col-2 mt-4 mb-3" %>
