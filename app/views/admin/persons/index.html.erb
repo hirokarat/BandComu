@@ -9,17 +9,17 @@
         <th>電話番号</th>
         <th>メールアドレス</th>
       </tr>
-      <% @entries.each do |entry| %>
+      <% @persons.each do |person| %>
       <tr>
         <td>
-          <%= image_tag entry.person.get_profile_image(50,50) %>
+          <%= image_tag person.get_profile_image(50,50) %>
         </td>
         <td>
-          <%= link_to entry.person.full_name,group_person_path(entry.person), class: "text-dark"%>
+          <%= link_to person.full_name,admin_person_path(person), class: "text-dark"%>
         </td>
         <td><%= person.full_name_kana%></td>
-        <td><%= entry.person.telephone_number %></td>
-        <td><%= entry.person.email%></td>
+        <td><%= person.telephone_number %></td>
+        <td><%= person.email%></td>
       </tr>
     <% end %>
     </table>

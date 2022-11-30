@@ -30,9 +30,13 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
 namespace :admin do
     root to:'homes#top'
-    resources:persons, only: [:index,:show,:destroy,:unsubscribe,:withdraw]
-    resources:teams, only:[:index,:show,:destroy,:unsubscribe,:withdraw]
-    resources:journals,only: [:index,:show,:destroy,:unsubscribe,:withdraw]
+    resources:persons, only: [:index,:show,:destroy]
+    resources:teams, only:[:index,:show,:destroy,]
+    resources:journals,only: [:index,:show,:destroy] do
+      collection do
+        get "search_tag"
+      end
+    end
   end
 
 namespace :people do
