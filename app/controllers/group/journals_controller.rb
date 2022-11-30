@@ -69,6 +69,10 @@ class Group::JournalsController < ApplicationController
     end
   end
 
+  def user_index
+    @journals = Journal.where(team_id: current_team.id).includes(:team).order("created_at DESC")
+  end
+
   private
   def journal_params
     params.require(:journal).permit(:journal,:activity_image)

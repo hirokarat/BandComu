@@ -37,4 +37,7 @@
       </tr>
     </table>
   </div>
+  <div class="mt-3">
+    <%= link_to "削除",admin_person_path(@person.id), class:"btn btn-danger col-1", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+  </div>
 </div>
