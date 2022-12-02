@@ -1,4 +1,6 @@
 class Admin::TeamsController < ApplicationController
+  before_action :user_shut_out
+  before_action :authenticate_admin!
   def index
     @teams=Team.all.page(params[:page]).per(10)
     if params[:area].present?

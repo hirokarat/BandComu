@@ -1,4 +1,5 @@
 class People::TeamsController < ApplicationController
+  before_action :authenticate_person!
   
   def index
     @teams=Team.all.page(params[:page]).per(10)

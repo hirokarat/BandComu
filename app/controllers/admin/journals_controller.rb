@@ -1,4 +1,7 @@
 class Admin::JournalsController < ApplicationController
+  before_action :user_shut_out
+  before_action :authenticate_admin!
+  
   def index
     @journals = Journal.page(params[:page]).per(10)
     @tag_lists=Tag.all

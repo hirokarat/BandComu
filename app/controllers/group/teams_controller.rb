@@ -1,5 +1,5 @@
 class Group::TeamsController < ApplicationController
-
+  before_action :authenticate_team!
   
   def show
     @team = Team.find(params[:id])
