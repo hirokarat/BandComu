@@ -15,6 +15,13 @@ class Admin::JournalsController < ApplicationController
     @journal = Journal.find(params[:id])
     @journal_tags = @journal.tags
   end
+  
+  def destroy
+      @journal = Journal.find(params[:id]) 
+      @journal.destroy
+      flash[:notice] = '投稿を削除しました。'
+      redirect_to action: :index
+  end
 
   def search_tag
     #検索結果画面でもタグ一覧表示
