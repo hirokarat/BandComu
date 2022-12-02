@@ -1,5 +1,6 @@
 class People::JournalsController < ApplicationController
-
+  before_action :authenticate_person!
+  
   def index
     @journals = Journal.page(params[:page]).per(10)
     @tag_lists=Tag.all

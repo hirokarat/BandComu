@@ -1,5 +1,5 @@
 class People::EntriesController < ApplicationController
-  
+  before_action :authenticate_person!
   
   def create
     @team = Team.find(params[:team_id])
