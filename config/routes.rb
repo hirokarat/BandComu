@@ -68,6 +68,9 @@ namespace :people do
       collection do
         get "search_tag"
       end
+      member do
+        get "user_index"
+      end
     end
   end
 

@@ -15,23 +15,23 @@
     </tr>
     <tr>
       <td class="table-active border border-dark">募集パート</td>
-      <td class="border border-dark">text</td>
+      <td class="border border-dark"><%= @team.part%></td>
     </tr>
     <tr>
       <td class="table-active border border-dark">募集条件</td>
-      <td class="border border-dark">text</td>
+      <td class="border border-dark"><%= @team.condition%></td>
     </tr>
     <tr>
-      <td class="table-active border border-dark">活動費用</td>
-      <td class="border border-dark">text</td>
+      <td class="table-active border border-dark">活動費用（毎月）</td>
+      <td class="border border-dark"><%= @team.cost.to_s(:delimited)%>円</td>
     </tr>
     <tr>
       <td class="table-active border border-dark">練習日</td>
-      <td class="border border-dark">text</td>
+      <td class="border border-dark"><%= @team.practice_date%></td>
     </tr>
     <tr>
       <td class="table-active border border-dark">練習場所</td>
-      <td class="border border-dark">text</td>
+      <td class="border border-dark"><%= @team.practice_area%></td>
     </tr>
     <tr>
       <td class="table-active border border-dark">活動エリア</td>
@@ -47,9 +47,9 @@
     </tr>
     <tr>
       <td class="table-active border border-dark">主な演奏先</td>
-      <td class="border border-dark">text</td>
+      <td class="border border-dark"><%= @team.location%></td>
     </tr>
   </table>
   <%= link_to "編集する", edit_group_team_path, class: "btn btn-success col-1 ml-3 mb-4" %>
-  <%= link_to "自分の活動日誌", user_index_group_journals_path, class: "btn btn-success col-2 ml-3 mb-4 ms-5"%>
+  <%= link_to "自分の活動日誌", user_index_group_journal_path, class: "btn btn-success col-2 ml-3 mb-4 ms-5"%>
 </div>
