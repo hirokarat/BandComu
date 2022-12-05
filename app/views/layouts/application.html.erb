@@ -35,9 +35,6 @@
                     <%= link_to "マイページ",  group_team_path(current_team), class: 'nav-link' %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "チーム一覧", group_teams_path, class: 'nav-link' %>
-                  </li>
-                  <li class="nav-item">
                     <%= link_to "応募者一覧", group_persons_path, class: 'nav-link' %>
                   </li>
                   <li class="nav-item">
@@ -45,19 +42,6 @@
                   </li>
                   <li class="nav-item">
                     <%= link_to "ログアウト", destroy_team_session_path, method: :delete, class: 'nav-link' %>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li>
-                        <hr class="dropdown-divider">
-                      </li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
                   </li>
                 </ul>
 
@@ -84,19 +68,6 @@
                   <li class="nav-item">
                     <%= link_to "ログアウト", destroy_person_session_path, method: :delete, class: 'nav-link' %>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li>
-                        <hr class="dropdown-divider">
-                      </li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
                 </ul>
                 <%= form_with url: people_teams_path, method: :get,class: "d-flex mt-3 mt-lg-0", local: true do |f| %>  <!--検索フォーム-->
                   <%= f.text_field :q, placeholder: '名前を入力...',class: "form-control me-2" %>
@@ -117,19 +88,6 @@
                     <li class="nav-item">
                       <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link' %>
                     </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                          <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                      </ul>
-                    </li>
                   </ul>
                     <%= form_with url: people_teams_path, method: :get,class: "d-flex mt-3 mt-lg-0", local: true do |f| %> <!--検索フォーム-->
                       <%= f.text_field :q, placeholder: '名前を入力...',class: "form-control me-2" %>
@@ -139,15 +97,9 @@
                 <% else %>
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <%= link_to "Home", top_path, class: 'nav-link active' %>
                     </li>
-                    <li class="nav-item">
-                      <%= link_to '個人ゲストログイン（閲覧用）', people_guest_sign_in_path, method: :post , class: 'nav-link'%>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to '団体ゲストログイン（閲覧用）', group_guest_sign_in_path, method: :post , class: 'nav-link'%>
-                    </li>
-                    <li class="nav-item">
+                     <li class="nav-item">
                       <%= link_to "活動日誌",people_journals_path, class: 'nav-link' %>
                     </li>
                     <li class="nav-item">
@@ -156,23 +108,18 @@
                     <li class="nav-item">
                       <%= link_to "個人新規登録",new_person_registration_path, class: 'nav-link' %>
                     </li>
-                    <li class="nav-item">
-                       <%= link_to "団体ログイン",new_team_session_path, class: 'nav-link' %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to "個人ログイン", new_person_session_path, class: 'nav-link' %>
-                    </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                        ログイン
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><%= link_to "個人ログイン", new_person_session_path, class: 'dropdown-item' %></li>
+                        <li><%= link_to '個人ゲストログイン（閲覧用）', people_guest_sign_in_path, method: :post , class: 'dropdown-item'%></li>
                         <li>
                           <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><%= link_to "団体ログイン",new_team_session_path, class: 'dropdown-item' %></li>
+                        <li><%= link_to '団体ゲストログイン（閲覧用）', group_guest_sign_in_path, method: :post , class: 'dropdown-item'%></li>
                       </ul>
                     </li>
                   </ul>

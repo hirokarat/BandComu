@@ -1,1 +1,18 @@
-top_page
+
+<div style="position: relative; display:inline-block;">
+  <%= image_tag 'band.jpg' ,class:'w-100'%>
+  <div style="position: absolute; top: 0; left: 0; max-width: 100%; max-height: 100%; padding: 30px; text-align: left; mix-blend-mode: lighten;  top: 250px; left: 70px; ">
+  <h1 class='' style="color:white; font-size: 150px; font-family: 'ヒラギノ角ゴ Pro W3 ProN W3';">音楽仲間を探そう！！</h1>
+  </div>
+</div>
+<div class="card w-100">
+  <div class="card-body">
+    <h3 class="card-title">About</h3>
+    <p class="card-text">会員登録してバンドを探したりバンドメンバーを探そう！！</p>
+    <%= link_to "団体新規登録",new_team_registration_path, class: "btn btn-primary" %>
+    <%= link_to "個人新規登録",new_person_registration_path, class: "btn btn-primary ms-3" %>
+    <%= link_to "チーム一覧", people_teams_path, class: "btn btn-primary ms-3" %>
+    <%= link_to '個人ゲストログイン（閲覧用）', people_guest_sign_in_path, method: :post , class: 'btn btn-primary ms-3'%>
+    <%= link_to '団体ゲストログイン（閲覧用）', group_guest_sign_in_path, method: :post , class: 'btn btn-primary ms-3'%>
+  </div>
+</div>
