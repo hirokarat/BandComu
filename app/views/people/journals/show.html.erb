@@ -3,7 +3,7 @@
  <div class="card mb-3 mt-4 w-50 mx-auto">
     <%= image_tag @journal.activity_image,class:"card-img-top"%>
     <div class="card-body">
-      <h5 class="card-title">投稿者:<%= @journal.team.name%></h5>
+      <h5 class="card-title">:<%= @journal.team.name%></h5>
       <p class="card-text"><%=@journal.journal %></p>
       <p class="card-text"><small class="text-muted"><%= @journal.created_at.to_s(:datetime_jp)%></small></p>
       <p><%= link_to 'このユーザーの詳細へ', people_team_path(@journal.team_id)%></p>
