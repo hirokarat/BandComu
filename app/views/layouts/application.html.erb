@@ -83,6 +83,9 @@
                     <%= link_to "チーム一覧", admin_teams_path, class: 'nav-link' %>
                     </li>
                     <li class="nav-item">
+                    <%= link_to "個人一覧", admin_persons_path, class: 'nav-link' %>
+                    </li>
+                    <li class="nav-item">
                       <%= link_to "活動日誌",admin_journals_path, class: 'nav-link' %>
                     </li>
                     <li class="nav-item">
@@ -103,7 +106,7 @@
                       <%= link_to "活動日誌",people_journals_path, class: 'nav-link' %>
                     </li>
                     <li class="nav-item">
-                      <%= link_to "団体新規登録",new_team_registration_path, class: 'nav-link' %>
+                      <%= link_to "チーム新規登録",new_team_registration_path, class: 'nav-link' %>
                     </li>
                     <li class="nav-item">
                       <%= link_to "個人新規登録",new_person_registration_path, class: 'nav-link' %>
@@ -118,8 +121,8 @@
                         <li>
                           <hr class="dropdown-divider">
                         </li>
-                        <li><%= link_to "団体ログイン",new_team_session_path, class: 'dropdown-item' %></li>
-                        <li><%= link_to '団体ゲストログイン（閲覧用）', group_guest_sign_in_path, method: :post , class: 'dropdown-item'%></li>
+                        <li><%= link_to "チームログイン",new_team_session_path, class: 'dropdown-item' %></li>
+                        <li><%= link_to 'チームゲストログイン（閲覧用）', group_guest_sign_in_path, method: :post , class: 'dropdown-item'%></li>
                       </ul>
                     </li>
                   </ul>
