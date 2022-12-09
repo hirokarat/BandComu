@@ -51,20 +51,17 @@
     </tr>
   </table>
   <% if person_signed_in?%>
-   <div>
-        <% if @team.bookmarked_by?(current_person) %>
-          <%= link_to "ブックマークを外す", people_team_bookmarks_path(@team), method: :delete %>
-        <% else %>
-          <%= link_to "ブックマーク", people_team_bookmarks_path(@team), method: :post %>
-        <% end %>
-    </div>
-
-    <div>
-      <% if @team.entried_by?(current_person) %>
-        <%= link_to "応募を取り消す", people_team_entries_path(@team), method: :delete %>
+      <% if @team.bookmarked_by?(current_person) %>
+        <%= link_to "ブックマークを外す", people_team_bookmarks_path(@team), method: :delete, class: "btn btn-danger mb-4" %>
       <% else %>
-        <%= link_to "応募する", people_team_entries_path(@team), method: :post %>
+        <%= link_to "ブックマーク", people_team_bookmarks_path(@team), method: :post, class: "btn btn-success mb-4" %>
       <% end %>
-    </div>
+      
+      <% if @team.entried_by?(current_person) %>
+        <%= link_to "応募を取り消す", people_team_entries_path(@team), method: :delete , class: "btn btn-danger mb-4 ms-5"%>
+      <% else %>
+        <%= link_to "応募する", people_team_entries_path(@team), method: :post , class: "btn btn-success mb-4 ms-5"%>
+      <% end %>
   <% end %>
+  <%= link_to "チームの活動日誌", user_index_people_journal_path(@team), class: "btn btn-primary mb-4 ms-5"%>
 </div>

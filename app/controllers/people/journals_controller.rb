@@ -25,6 +25,11 @@ class People::JournalsController < ApplicationController
     #検索されたタグに紐づく投稿を表示
     @journals=@tag.journals.page(params[:page]).per(10)
   end
+  
+  def user_index
+    @team= Team.find(params[:id])
+    @journals = Journal.where(team_id:params[:id]).order("created_at DESC").page(params[:page]).per(10)
+  end
 
 
 end

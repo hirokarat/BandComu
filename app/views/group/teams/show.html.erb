@@ -1,6 +1,6 @@
 <div class="container mt-5 mb-5">
   <div class="card mb-3 mx-auto">
-    <%= image_tag @team.get_header_image(500,500)%>
+    <%= image_tag @team.get_header_image(700,700)%>
       <div class="card-body">
         <h3 class="card-title display-6"><%= @team.name%></h3>
         <p class="card-text">楽団説明</p>
@@ -23,7 +23,7 @@
     </tr>
     <tr>
       <td class="table-active border border-dark">活動費用（毎月）</td>
-      <td class="border border-dark"><%= @team.cost.to_s(:delimited)%>円</td>
+      <td class="border border-dark"><%= @team.cost%>円</td>
     </tr>
     <tr>
       <td class="table-active border border-dark">練習日</td>
@@ -50,6 +50,10 @@
       <td class="border border-dark"><%= @team.location%></td>
     </tr>
   </table>
-  <%= link_to "編集する", edit_group_team_path, class: "btn btn-success col-1 ml-3 mb-4" %>
-  <%= link_to "自分の活動日誌", user_index_group_journal_path, class: "btn btn-success col-2 ml-3 mb-4 ms-5"%>
+  <% if @team.id == current_team.id %>
+    <%= link_to "編集する", edit_group_team_path, class: "btn btn-success col-1 ml-3 mb-4" %>
+    <%= link_to "自分の活動日誌", user_index_group_journal_path, class: "btn btn-success col-2 ml-3 mb-4 ms-5"%>
+  <% else %>
+    <%= link_to "チームの活動日誌", user_index_group_journal_path, class: "btn btn-success col-2 ml-3 mb-4"%>
+  <% end %>
 </div>

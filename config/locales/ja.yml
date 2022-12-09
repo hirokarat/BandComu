@@ -3,3 +3,9 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%m/%d %H:%M"
+  activerecord:
+    attributes:
+      journal:
+        activity_image: 活動画像
+        journal: 活動日誌
+        

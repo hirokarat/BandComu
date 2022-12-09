@@ -3,12 +3,13 @@
   <div class="card mb-3 mt-4 w-50 mx-auto">
    <%= image_tag @journal.activity_image,class:"card-img-top"%>
    <div class="card-body">
-    <h5 class="card-title"><%= image_tag journal.team.get_profile_image(50,50), class:"rounded-circle" %>:<%= @journal.team.name%></h5>
+    <h5 class="card-title"><%= image_tag @journal.team.get_profile_image(50,50), class:"rounded-circle" %>:<%= @journal.team.name%></h5>
     <p class="card-text"><%=@journal.journal %></p>
     <p class="card-text"><small class="text-muted"><%= @journal.created_at.to_s(:datetime_jp)%></small></p>
     <p><%= link_to 'このユーザーの詳細へ', admin_team_path(@journal.team_id)%></p>
      <% @journal_tags.each do |tag| %>
-      <%= link_to tag.name,search_tag_admin_journals_path(tag_id: tag.id)%><%="(#{tag.journals.count})" %>
+     <i class="fa-solid fa-tag"></i>
+      <%= link_to tag.name,search_tag_admin_journals_path(tag_id: tag.id)%>
      <% end %>
    </div>
   </div>

@@ -5,6 +5,9 @@ class Journal < ApplicationRecord
   has_many :tag_relationships,dependent: :destroy
   has_many :tags,through: :tag_relationships
 
+  validates :activity_image, presence: true
+  validates :journal, presence: true
+  
   def get_activity_image(width, height)
       unless activity_image.attached?
         file_path = Rails.root.join('app/assets/images/no_image.png')
