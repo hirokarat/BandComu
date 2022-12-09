@@ -17,7 +17,7 @@
         <td>
           <%= link_to entry.person.full_name,group_person_path(entry.person), class: "text-dark"%>
         </td>
-        <td><%= person.full_name_kana%></td>
+        <td><%= entry.person.full_name_kana%></td>
         <td><%= entry.person.telephone_number %></td>
         <td><%= entry.person.email%></td>
       </tr>

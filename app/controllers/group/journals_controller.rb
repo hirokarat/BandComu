@@ -2,7 +2,6 @@ class Group::JournalsController < ApplicationController
 
   before_action :authenticate_team!
 
-
   def new
     @journal=Journal.new
   end
@@ -17,7 +16,7 @@ class Group::JournalsController < ApplicationController
       redirect_to group_journals_path,notice:'投稿完了しました'
     else
       flash.now[:alert] = '投稿に失敗しました'
-      render new
+      render 'new'
     end
   end
 
@@ -53,11 +52,6 @@ class Group::JournalsController < ApplicationController
     @journal_tags = @journal.tags
   end
 
-  def edit
-    @journal = Journal.find(params[:id])
-    @tag_list=@journal.tags.pluck(:name).join(',')
-  end
-
   def update
     @journal = Journal.find(params[:id])
     tag_list=params[:journal][:name].split(',')
@@ -70,7 +64,8 @@ class Group::JournalsController < ApplicationController
   end
 
   def user_index
-    @journals = Journal.where(team_id: current_team.id).includes(:team).order("created_at DESC")
+    @team= Team.find(params[:id])
+    @journals = Journal.where(team_id:params[:id]).order("created_at DESC").page(params[:page]).per(10)
   end
 
   private

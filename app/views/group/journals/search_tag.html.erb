@@ -1,15 +1,7 @@
-<div class="container">
-<h5>タグが<%=@tag.name%>の投稿一覧</h5>
-
-<div>
-  タグで探す
-  <% @tag_list.last(5).each do |list| %>
-  <%= link_to list.name, group_journals_path(tag_id: list.id), class: 'tag_list'%>
-  <%="(#{list.journals.count})" %>
-  <% end %>
-</div>
-<%= render 'each_journal'%>
-<div class="pagination pagination-sm justify-content-center">
-       <%= paginate @journals %></div>
-
+<div class="container mt-4">
+<h4><mark>タグが<%=@tag.name%>の投稿一覧</mark></h4>
+   <%= render 'each_journal'%>
+  <div class="pagination pagination-sm justify-content-center">
+    <%= paginate @journals %>
+  </div>
 </div>

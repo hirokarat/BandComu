@@ -23,7 +23,7 @@ class Person < ApplicationRecord
   end
   
   def age(birthday)
-    birthday = Date.parse('1990-10-10') 
+    date_format = "%Y%m%d"
     (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
   end
   

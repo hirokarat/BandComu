@@ -36,6 +36,9 @@ namespace :admin do
       collection do
         get "search_tag"
       end
+      member do
+        get "user_index"
+      end
     end
   end
 
@@ -53,6 +56,9 @@ namespace :people do
     resources:journals, only:[:index,:show] do
       collection do
         get "search_tag"
+      end
+      member do
+        get "user_index"
       end
     end
   end
