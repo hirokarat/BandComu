@@ -6,9 +6,9 @@ class People::JournalsController < ApplicationController
     
     if params[:tag_id].present?
       @tag = Tag.find(params[:tag_id])
-      @journals = @tag.journals.order(created_at: :desc)
+      @journals = @tag.journals.order(created_at: :desc).page(params[:page]).per(10)
     else
-      @journals = Journal.all.order(created_at: :desc)
+      @journals = Journal.all.order(created_at: :desc).page(params[:page]).per(10)
     end
   end
 

@@ -1,7 +1,7 @@
 <div class="container mt-4">
 <h4><mark>タグが<%=@tag.name%>の投稿一覧</mark></h4>
    <%= render 'each_journal'%>
-  <div class="pagination pagination-sm justify-content-center">
-    <%= paginate @journals %>
+  <div class="pagination justify-content-center">
+   <%= paginate @journals, theme: 'bootstrap-5'%>
   </div>
 </div>
