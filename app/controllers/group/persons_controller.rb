@@ -6,7 +6,7 @@ class Group::PersonsController < ApplicationController
   end
   
   def index
-    @entries = Entry.where(team_id: current_team.id)
+    @entries = Entry.where(team_id: current_team.id).page(params[:page]).per(10)
   end
   
   private

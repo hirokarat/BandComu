@@ -8,6 +8,7 @@ gem 'kaminari'
 gem "enum_help"
 gem 'ransack'
 gem 'rails-i18n'
+gem 'bootstrap5-kaminari-views'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6', '>= 6.1.6.1'

@@ -5,6 +5,8 @@
     <%= link_to list.name, group_journals_path(tag_id: list.id), class: 'tag_list'%>
     <%="(#{list.journals.count})" %>
   <% end %>
-  
   <%= render 'each_journal'%>
+  <div class="pagination justify-content-center">
+   <%= paginate @journals, theme: 'bootstrap-5'%>
+  </div>
 </div>

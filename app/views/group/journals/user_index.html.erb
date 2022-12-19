@@ -1,4 +1,7 @@
 <div class="container mt-4">
   <h2><mark><%= @team.name%>の活動日誌一覧</mark></h2>
   <%= render 'each_journal'%>
+  <div class="pagination justify-content-center">
+   <%= paginate @journals, theme: 'bootstrap-5'%>
+  </div>
 </div>
