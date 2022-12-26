@@ -37,7 +37,8 @@ class Group::TeamsController < ApplicationController
       :practice_date,
       :practice_area,
       :location,
-      :header_image)
+      :header_image,
+      :introduction)
   end
 
 
