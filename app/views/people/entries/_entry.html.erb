@@ -1,0 +1,5 @@
+<% if @team.entried_by?(current_person) %>
+  <%= link_to "応募を取り消す", people_team_entries_path(@team), method: :delete , remote: true,class: "btn btn-danger mb-4 ms-5"%>
+<% else %>
+  <%= link_to "応募する", people_team_entries_path(@team), method: :post , remote: true, class: "btn btn-success mb-4 ms-5"%>
+<% end %>

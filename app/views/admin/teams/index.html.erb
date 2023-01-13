@@ -2,19 +2,17 @@
   <div class="admin-customer pt-5">
     <h2><mark>団体一覧</mark></h2>
       <% if params[:q].present?%>
-      <h1 class="mt-4"><mark><%= params[:q]%></mark>の検索結果</h1>
+        <h1 class="mt-4"><mark><%= params[:q]%></mark>の検索結果</h1>
       <%end%>
-       <div class="mt-4">
-        <%= form_tag(people_teams_path, method: "get") do %>
-          <%= label_tag :area, "活動エリア" %>
-          <%= select_tag :area, options_for_select(Team.areas), include_blank: true, value: params[:area]%>
-          <%= label_tag :genre, "ジャンル" %>
-          <%= select_tag :genre, options_for_select(Team.genres), include_blank: true, value: params[:genre]%>
-          <%= submit_tag "検索" %>
-       <% end %>
-        </div>
-
-
+    <div class="mt-4">
+      <%= form_tag(people_teams_path, method: "get") do %>
+        <%= label_tag :area, "活動エリア" %>
+        <%= select_tag :area, options_for_select(Team.areas), include_blank: true, value: params[:area]%>
+        <%= label_tag :genre, "ジャンル" %>
+        <%= select_tag :genre, options_for_select(Team.genres), include_blank: true, value: params[:genre]%>
+        <%= submit_tag "検索" %>
+      <% end %>
+    </div>
     <table class="table">
       <tr class="table-active">
         <th>アイコン</th>
@@ -23,18 +21,18 @@
         <th>ジャンル</th>
         <th>メールアドレス</th>
       </tr>
-        <% if params[:q].present? %>
-          <% @search_teams.each do |team| %>
-            <%= render partial: 'admin/teams/teams', locals: {team: team}%>
-          <% end %>
-        <% else %>
-          <% @teams.each do |team| %>
-            <%= render partial: 'admin/teams/teams', locals: {team: team}%>
-          <% end %>  
+      <% if params[:q].present? %>
+        <% @search_teams.each do |team| %>
+          <%= render partial: 'admin/teams/teams', locals: {team: team}%>
         <% end %>
+      <% else %>
+        <% @teams.each do |team| %>
+          <%= render partial: 'admin/teams/teams', locals: {team: team}%>
+        <% end %>  
+      <% end %>
     </table>
     <div class="pagination justify-content-center">
-     <%= paginate @teams, theme: 'bootstrap-5'%>
+      <%= paginate @teams, theme: 'bootstrap-5'%>
     </div>
   </div>
 </div>

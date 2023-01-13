@@ -6,5 +6,4 @@ class Entry < ApplicationRecord
   def full_name
     self.person.last_name + self.person.first_name
   end
-  
 end

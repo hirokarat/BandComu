@@ -2,17 +2,14 @@
   <div class="signin text-center bg-light py-4 px-3 col-md-6 mx-auto rounded mt-4">
     <%= form_with model: @admin, url: admin_session_path do |f| %>
       <h1 class="h3 mb-3 fw-normal">管理者ログイン</h1>
-
       <div class="field mb-3">
         <%= f.label "メールアドレス" %>
         <%= f.email_field :email, autocomplete: "email",class:"form-control",placeholder:"name@example.com" %>
       </div>
-
       <div class="field mb-3">
         <%= f.label :password %>
         <%= f.password_field :password, autocomplete: "current-password",class:"form-control",placeholder:"password" %>
       </div>
-
       <%= f.submit "Sign in", class: "mt-4 btn btn-primary" %>
     <% end %>
   </div>

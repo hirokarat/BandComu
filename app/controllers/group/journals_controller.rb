@@ -52,17 +52,6 @@ class Group::JournalsController < ApplicationController
     @journal_tags = @journal.tags
   end
 
-  def update
-    @journal = Journal.find(params[:id])
-    tag_list=params[:journal][:name].split(',')
-    if @journal.update(journal_params)
-       @journal.save_tag(tag_list)
-       redirect_to journal_path(@journal.id),notice:'投稿完了しました:)'
-    else
-      render:edit
-    end
-  end
-
   def user_index
     @team= Team.find(params[:id])
     @journals = Journal.where(team_id:params[:id]).order("created_at DESC").page(params[:page]).per(10)
@@ -72,6 +61,4 @@ class Group::JournalsController < ApplicationController
   def journal_params
     params.require(:journal).permit(:journal,:activity_image)
   end
-
-
 end

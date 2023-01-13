@@ -5,7 +5,6 @@ class Person < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  
   has_many :bookmarks, dependent: :destroy
   has_many :entries, dependent: :destroy
          
@@ -22,8 +21,7 @@ class Person < ApplicationRecord
     end
   end
   
-  def age(birthday)
-    date_format = "%Y%m%d"
+  def age
     (Date.today.strftime('%Y%m%d').to_i - birthday.strftime('%Y%m%d').to_i) / 10000
   end
   
@@ -42,5 +40,4 @@ class Person < ApplicationRecord
       end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
-         
 end
