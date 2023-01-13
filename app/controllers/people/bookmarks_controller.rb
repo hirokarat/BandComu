@@ -1,5 +1,5 @@
 class People::BookmarksController < ApplicationController
-  
+
   before_action :authenticate_person!
 
   def create

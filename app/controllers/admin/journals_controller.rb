@@ -5,7 +5,6 @@ class Admin::JournalsController < ApplicationController
   def index
     @journals = Journal.page(params[:page]).per(10)
     @tag_lists=Tag.all
-    
     if params[:tag_id].present?
       @tag = Tag.find(params[:tag_id])
       @journals = @tag.journals.order(created_at: :desc).page(params[:page]).per(10)
@@ -20,10 +19,10 @@ class Admin::JournalsController < ApplicationController
   end
   
   def destroy
-      @journal = Journal.find(params[:id]) 
-      @journal.destroy
-      flash[:notice] = '投稿を削除しました。'
-      redirect_to action: :index
+    @journal = Journal.find(params[:id]) 
+    @journal.destroy
+    flash[:notice] = '投稿を削除しました。'
+    redirect_to action: :index
   end
 
   def search_tag

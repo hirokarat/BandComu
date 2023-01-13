@@ -1,6 +1,7 @@
 class Admin::TeamsController < ApplicationController
   before_action :user_shut_out
   before_action :authenticate_admin!
+  
   def index
     @teams=Team.all.page(params[:page]).per(10)
     if params[:area].present?
@@ -18,10 +19,9 @@ class Admin::TeamsController < ApplicationController
   end
   
   def destroy
-      @team = Team.find(params[:id]) 
-      @team.destroy
-      flash[:notice] = 'ユーザーを削除しました。'
-      redirect_to action: :index
+    @team = Team.find(params[:id]) 
+    @team.destroy
+    flash[:notice] = 'ユーザーを削除しました。'
+    redirect_to action: :index
   end
-  
 end

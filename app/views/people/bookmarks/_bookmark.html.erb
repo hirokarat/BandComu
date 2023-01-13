@@ -1,0 +1,5 @@
+<% if @team.bookmarked_by?(current_person) %>
+  <%= link_to "ブックマークを外す", people_team_bookmarks_path(@team), method: :delete,remote: true, data: {"turbolinks" => false}, class: "btn btn-danger mb-4" %>
+<% else %>
+  <%= link_to "ブックマーク", people_team_bookmarks_path(@team), method: :post, remote: true, data: {"turbolinks" => false}, class: "btn btn-success mb-4" %>
+<% end %>

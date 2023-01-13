@@ -19,9 +19,7 @@ class Group::TeamsController < ApplicationController
     end
   end
 
-
   private
-
   def team_params
     params.require(:team).permit(
       :name,
@@ -40,6 +38,4 @@ class Group::TeamsController < ApplicationController
       :header_image,
       :introduction)
   end
-
-
 end

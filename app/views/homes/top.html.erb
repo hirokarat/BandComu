@@ -1,16 +1,15 @@
 <div class="wrap" style="overflow: hidden;">
   <div class="img-fluid" style="position: relative; display:inline-block;">
-    <%= image_tag 'band.jpg' ,class:'w-100',style:"background-size: cover;
-    background-position: center;"%>
-    <div style="position: absolute; max-width: 100%; max-height: 100%;  mix-blend-mode: lighten; left: 50%; top: 20%; transform: translate(-50%,-20%);">
-    <div class='display-1 text-nowrap fw-bold' style="color:white; font-family: 'ヒラギノ角ゴ Pro W3 ProN W3'; ">音楽仲間を探そう！！</div>
+    <%= image_tag 'band.jpg' ,class:'w-100',style:"background-size: cover; background-position: center;"%>
+    <div style="position: absolute; max-width: 100%; max-height: 100%;  mix-blend-mode: lighten; left: 50%; top: 20%; transform: translate(-50%,-20%); font-family:851MkPOP_101;">
+      <div class='display-1 text-nowrap fw-bold' id='catchcopy' style="color:white; ">音楽仲間を探そう！！</div>
     </div>
   </div>
   <div class="card w-100">
     <div class="card-body">
       <h3 class="card-title">About</h3>
       <% if person_signed_in? %>
-        <p class="card-text">チーム一覧から気になるバンドを探そう！！</p>
+        <p class="card-text" style="font-family:851MkPOP_101;">チーム一覧から気になるバンドを探そう！！</p>
         <%= link_to "チーム一覧", people_teams_path, class: "btn btn-primary" %>
       <% elsif team_signed_in? %>
         <p class="card-text">活動日誌で自分のバンドをアピールしよう！！</p>
