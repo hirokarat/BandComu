@@ -2,21 +2,16 @@ class People::EntriesController < ApplicationController
   before_action :authenticate_person!
   
   def create
-    @team = Team.find(params[:team_id])
-    entry = @team.entries.new(person_id: current_person.id)
+    team = Team.find(params[:team_id])
+    entry = team.entries.new(person_id: current_person.id)
     entry.save!
-    redirect_to people_team_path(@team)
+    redirect_to people_team_path(team)
   end
   
   def destroy
-    @team= Team.find(params[:team_id])
-    entry = @team.entries.find_by(person_id: current_person.id)
-    if entry.present?
-        entry.destroy
-        redirect_to people_team_path(@team)
-    else
-        redirect_to people_team_path(@team)
-    end
+    team= Team.find(params[:team_id])
+    entry = team.entries.find_by(person_id: current_person.id)
+    entry.destroy if entry.present?
+    redirect_to people_team_path(team)
   end
-  
 end
