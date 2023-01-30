@@ -13,27 +13,23 @@
     <h2><mark>活動日誌投稿</mark></h2>
     <div class="bg-light">
       <%= form_with model: @journal,url:group_journals_path, method: :post,local: true do |f| %>
-        
         <div class="form-group">
           <%= f.label "活動画像", class: "mt-4 col-3 ms-4" %>
           <%= f.file_field :activity_image, accept: "image/*",class: "col-4 me-4 mt-4" %>
         </div>
-      
         <div class="form-group">
           <%= f.label "活動日誌", class: "col-3 ms-4 " %>
           <%= f.text_area :journal,class: "col-4 me-4 mt-4" %>
         </div>
-      
         <div class="form-group">
           <%= f.label"タグ (,で区切ると複数タグ登録できます)" ,class: "mt-4 col-3 ms-4"%>
           <%= f.text_field :name,value: @tag_list,class:"col-2 me-4 mt-4"%>
         </div>
-      
         <%= f.submit "投稿", class: "btn btn-success col-2 mt-4 mb-3 ms-4" %>
         <% end %>
     </div>
-      <button type="button" class="btn btn-primary mt-4">
-        <%= link_to "活動日誌一覧へ", group_journals_path, class:"text-white"%>
-      </button>
+    <button type="button" class="btn btn-primary mt-4">
+      <%= link_to "活動日誌一覧へ", group_journals_path, class:"text-white"%>
+    </button>
   </div>
 </div>
