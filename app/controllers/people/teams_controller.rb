@@ -17,11 +17,11 @@ class People::TeamsController < ApplicationController
   end
   
   def bookmarks
-    @bookmarks = Bookmark.where(person_id: current_person.id).page(params[:page]).per(10)
+    @bookmarks = current_person.bookmarks.page(params[:page]).per(10)
   end
   
   def entries
-    @entries = Entry.where(person_id: current_person.id).page(params[:page]).per(10)
+    @entries = current_person.entries.page(params[:page]).per(10)
   end
   
   
