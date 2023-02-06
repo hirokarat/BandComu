@@ -4,6 +4,6 @@ class Entry < ApplicationRecord
   validates :person_id, uniqueness: { scope: :team_id }
   
   def full_name
-    self.person.last_name + self.person.first_name
+    person.full_name
   end
 end

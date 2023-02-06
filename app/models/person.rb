@@ -26,11 +26,11 @@ class Person < ApplicationRecord
   end
   
   def full_name
-    self.last_name + self.first_name
+    last_name + first_name
   end
   
   def full_name_kana
-    self.last_name_kana + self.first_name_kana
+    last_name_kana + first_name_kana
   end
   
   def get_profile_image(width, height)
