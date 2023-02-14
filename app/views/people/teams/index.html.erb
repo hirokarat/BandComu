@@ -1,20 +1,18 @@
 <div class="container">
   <div class="admin-customer pt-5">
     <h2><mark>チーム一覧</mark></h2>
-      <% if params[:q].present?%>
+    <% if params[:q].present?%>
       <h1 class="mt-4"><mark><%= params[:q]%></mark>の検索結果</h1>
-      <%end%>
-       <div class="mt-4">
-        <%= form_tag(people_teams_path, method: "get") do %>
-          <%= label_tag :area, "活動エリア" %>
-          <%= select_tag :area, options_for_select(Team.areas), include_blank: true, value: params[:area]%>
-          <%= label_tag :genre, "ジャンル" %>
-          <%= select_tag :genre, options_for_select(Team.genres), include_blank: true, value: params[:genre]%>
-          <%= submit_tag "検索" %>
-       <% end %>
-        </div>
-
-
+    <%end%>
+    <div class="mt-4">
+      <%= form_tag(people_teams_path, method: "get") do %>
+        <%= label_tag :area, "活動エリア" %>
+        <%= select_tag :area, options_for_select(Team.areas), include_blank: true, value: params[:area]%>
+        <%= label_tag :genre, "ジャンル" %>
+        <%= select_tag :genre, options_for_select(Team.genres), include_blank: true, value: params[:genre]%>
+        <%= submit_tag "検索" %>
+      <% end %>
+    </div>
     <table class="table">
       <tr class="table-active">
         <th>アイコン</th>
